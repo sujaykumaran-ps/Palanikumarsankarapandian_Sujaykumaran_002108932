@@ -41,7 +41,7 @@ public class Profile {
         {
             this.name = name;
         }else{
-            JOptionPane.showMessageDialog(null, "Name field is Empty / Invalid.");
+            JOptionPane.showMessageDialog(null, "Name field is Empty / Invalid !!!");
         }
     }
 
@@ -81,7 +81,7 @@ public class Profile {
         {
            this.phNum = phNum;
         }else{
-        JOptionPane.showMessageDialog(null, "Invalid number");
+        JOptionPane.showMessageDialog(null, "Invalid Phone Number !!!");
         }
     }
 
@@ -102,7 +102,7 @@ public class Profile {
         this.image = image;
         }
         else {
-            JOptionPane.showMessageDialog(null, "Please upload a Profile Image.");
+            JOptionPane.showMessageDialog(null, "Please upload a Profile Image !!!");
         }
     }
 
@@ -117,7 +117,7 @@ public class Profile {
         {
            this.fax = fax;
         }else{   
-        JOptionPane.showMessageDialog(null, "Invalid fax Number.");
+        JOptionPane.showMessageDialog(null, "Invalid fax Number !!!");
         }
     }
 
@@ -133,7 +133,7 @@ public class Profile {
            this.medical = medical;
         }else{
             
-        JOptionPane.showMessageDialog(null, "Invalid Medical Record Number.");
+        JOptionPane.showMessageDialog(null, "Invalid Medical Record Number !!!");
         
         }
     }
@@ -144,6 +144,12 @@ public class Profile {
 
     public void setHealth(String health) {
         this.health = health;
+        if(health.matches("\\b\\d[A-Z]{2}\\d-[A-Z]{2}\\d-[A-Z]{2}\\d{2}\\b"))
+        {
+            this.health = health;
+        }else{
+            JOptionPane.showMessageDialog(null,"Invalid Health Plan Beneficiary Number !!!");
+        }
     }
 
     public String getSsn() {
@@ -155,7 +161,7 @@ public class Profile {
         {
             this.ssn = ssn;
         }else{
-            JOptionPane.showMessageDialog(null, "SSN is Invalid.");
+            JOptionPane.showMessageDialog(null, "SSN is Invalid !!!");
         }
     }
 
@@ -164,7 +170,14 @@ public class Profile {
     }
 
     public void setBank(long bank) {
+//         String s = String.valueOf(bank);
+//         if(s == null || s.length() == 0)
+//       {
+//           JOptionPane.showMessageDialog(null, "Please Enter Bank Number !!!");
+//       }
+//       else{ 
         this.bank = bank;
+//         }
     }
 
     public String getLicense() {
@@ -177,7 +190,7 @@ public class Profile {
         {
             this.license = license;
         }else{
-            JOptionPane.showMessageDialog(null, "Invalid license number.");
+            JOptionPane.showMessageDialog(null, "Invalid License number !!!");
         }
     }
 
@@ -194,11 +207,12 @@ public class Profile {
     }
 
     public void setVehicleId(String vehicleId) {
+         this.vehicleId = vehicleId;
          if(vehicleId.matches("^[A-Z0-9]{17}$"))
         {
             this.vehicleId = vehicleId;
         }else{
-            JOptionPane.showMessageDialog(null, "Invalid Vehicle Identifier.");
+            JOptionPane.showMessageDialog(null, "Invalid Vehicle Identifier !!!");
         }
     }
 

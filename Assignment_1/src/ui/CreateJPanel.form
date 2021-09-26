@@ -22,37 +22,60 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblHealth" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblMedical" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblFax" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblName" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblGeo" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblLinkedIn" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblPhnNum" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="lblDob" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtLinkedIn" max="32767" attributes="0"/>
-                              <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtGeo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtPhnNum" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDob" pref="160" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblHealth" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMedical" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFax" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblGeo" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLinkedIn" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPhnNum" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblDob" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtHealth" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtMedical" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtFax" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtLinkedIn" max="32767" attributes="0"/>
+                                  <Component id="txtName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtGeo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPhnNum" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtDob" pref="160" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtHealth" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtMedical" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtFax" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblVehicle" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDevice" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblIpa" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtVehicle" max="32767" attributes="0"/>
+                                  <Component id="txtDevice" max="32767" attributes="0"/>
+                                  <Component id="txtIpa" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -86,7 +109,6 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="btnSave" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
           </Group>
@@ -144,7 +166,22 @@
                           <Component id="lblHealth" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtHealth" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="180" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblVehicle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVehicle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblDevice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDevice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblIpa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIpa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="92" max="32767" attributes="0"/>
                       <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
@@ -344,6 +381,36 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Format A123456789"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblVehicle">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Vehicle Identifier :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtVehicle">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDevice">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Device Identifier :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDevice">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIpa">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="IP Address :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIpa">
     </Component>
   </SubComponents>
 </Form>

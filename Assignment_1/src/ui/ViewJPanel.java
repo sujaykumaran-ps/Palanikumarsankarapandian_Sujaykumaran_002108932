@@ -60,6 +60,12 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtBank = new javax.swing.JTextField();
         lblLicense = new javax.swing.JLabel();
         txtLicense = new javax.swing.JTextField();
+        lblVehicle = new javax.swing.JLabel();
+        txtVehicle = new javax.swing.JTextField();
+        lblDevice = new javax.swing.JLabel();
+        txtDevice = new javax.swing.JTextField();
+        lblIpa = new javax.swing.JLabel();
+        txtIpa = new javax.swing.JTextField();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -113,25 +119,36 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblVehicle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblVehicle.setText("Vehicle Identifier :");
+
+        lblDevice.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblDevice.setText("Device Identifier :");
+
+        lblIpa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblIpa.setText("IP Address :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblName)
-                            .addComponent(lblGeo)
-                            .addComponent(lblLinkedIn)
-                            .addComponent(lblPhnNum)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblDob)
-                                .addGap(6, 6, 6))
-                            .addComponent(lblEmail))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblName)
+                                    .addComponent(lblGeo)
+                                    .addComponent(lblPhnNum)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblDob)
+                                        .addGap(6, 6, 6))
+                                    .addComponent(lblEmail)))
+                            .addComponent(lblLinkedIn, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtName)
@@ -139,23 +156,29 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtEmail)
                             .addComponent(txtPhnNum)
                             .addComponent(txtLinkedIn)
-                            .addComponent(txtDob, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+                            .addComponent(txtDob, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblHealth)
                             .addComponent(lblMedical)
-                            .addComponent(lblFax))
+                            .addComponent(lblFax)
+                            .addComponent(lblVehicle)
+                            .addComponent(lblDevice)
+                            .addComponent(lblIpa))
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtHealth, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMedical, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFax, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtFax, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtVehicle, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDevice, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIpa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblSsn)
@@ -176,7 +199,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(lblTitle)
-                .addGap(46, 46, 46)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -199,9 +222,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(lblPhnNum)
                             .addComponent(txtPhnNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLinkedIn)
-                            .addComponent(txtLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLinkedIn))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblFax)
@@ -216,7 +239,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSsn)
                             .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,7 +251,19 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblLicense)
                             .addComponent(txtLicense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVehicle)
+                    .addComponent(txtVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDevice)
+                    .addComponent(txtDevice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIpa)
+                    .addComponent(txtIpa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,12 +278,14 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblBank;
+    private javax.swing.JLabel lblDevice;
     private javax.swing.JLabel lblDob;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFax;
     private javax.swing.JLabel lblGeo;
     private javax.swing.JLabel lblHealth;
     private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblIpa;
     private javax.swing.JLabel lblLicense;
     private javax.swing.JLabel lblLinkedIn;
     private javax.swing.JLabel lblMedical;
@@ -256,18 +293,22 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPhnNum;
     private javax.swing.JLabel lblSsn;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblVehicle;
     private javax.swing.JTextField txtBank;
+    private javax.swing.JTextField txtDevice;
     private com.toedter.calendar.JDateChooser txtDob;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFax;
     private javax.swing.JTextField txtGeo;
     private javax.swing.JTextField txtHealth;
+    private javax.swing.JTextField txtIpa;
     private javax.swing.JTextField txtLicense;
     private javax.swing.JTextField txtLinkedIn;
     private javax.swing.JTextField txtMedical;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhnNum;
     private javax.swing.JTextField txtSsn;
+    private javax.swing.JTextField txtVehicle;
     // End of variables declaration//GEN-END:variables
 
     private void displayProduct() {
@@ -285,5 +326,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtSsn.setText(profile.getSsn());
         txtBank.setText(Long.toString(profile.getBank()));
         txtLicense.setText(profile.getLicense());
+        txtVehicle.setText(profile.getVehicleId());
+        txtDevice.setText(profile.getDeviceId());
+        txtIpa.setText(profile.getIpa());
     }
 }
