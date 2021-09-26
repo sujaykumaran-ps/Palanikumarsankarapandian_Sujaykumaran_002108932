@@ -222,6 +222,12 @@ public class Profile {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
+        if(deviceId.matches("^[A-Z0-9]{16}$"))
+        {
+            this.deviceId = deviceId;
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid Device Identifier !!!");
+        }
     }
    
     
