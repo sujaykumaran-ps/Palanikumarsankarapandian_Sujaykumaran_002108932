@@ -175,14 +175,17 @@ public class Profile {
     }
 
     public void setBank(long bank) {
-//         String s = String.valueOf(bank);
-//         if(s == null || s.length() == 0)
-//       {
-//           JOptionPane.showMessageDialog(null, "Please Enter Bank Number !!!");
-//       }
-//       else{ 
         this.bank = bank;
-//         }
+        String s = String.valueOf(bank);
+        if(s.matches("\\d{1,16}"))
+        {
+           this.bank = bank;
+        }else{
+            
+        JOptionPane.showMessageDialog(null, "Invalid Bank Account Number !!!");
+        
+        } 
+
     }
 
     public String getLicense() {
