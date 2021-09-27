@@ -59,7 +59,12 @@ public class Profile {
 
     public void setEmail(String email) {
         this.email = email;
-            
+        if(email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"))
+        {
+            this.email = email;
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid Email !!!");
+        }  
     }
 
     public String getLinkedIn() {
@@ -200,6 +205,12 @@ public class Profile {
 
     public void setIpa(String ipa) {
         this.ipa = ipa;
+        if(ipa.matches("^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$"))
+        {
+            this.ipa = ipa;
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid IP Address !!!");
+        }
     }
 
     public String getVehicleId() {
