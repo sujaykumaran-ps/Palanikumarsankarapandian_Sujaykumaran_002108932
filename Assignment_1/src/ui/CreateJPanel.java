@@ -76,6 +76,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtDevice = new javax.swing.JTextField();
         lblIpa = new javax.swing.JLabel();
         txtIpa = new javax.swing.JTextField();
+        lblId = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -144,13 +146,22 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabel1.setText("Format A123456789");
 
         lblVehicle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblVehicle.setText("Vehicle Identifier :");
+        lblVehicle.setText("Vehicle Identifier (17) :");
 
         lblDevice.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblDevice.setText("Device Identifier :");
+        lblDevice.setText("Device Identifier (16):");
 
         lblIpa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblIpa.setText("IP Address :");
+
+        txtIpa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIpaActionPerformed(evt);
+            }
+        });
+
+        lblId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblId.setText("Unique ID (5 digits) :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -161,51 +172,39 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblHealth)
+                    .addComponent(lblMedical)
+                    .addComponent(lblFax)
+                    .addComponent(lblName)
+                    .addComponent(lblGeo)
+                    .addComponent(lblLinkedIn)
+                    .addComponent(lblPhnNum)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblHealth)
-                            .addComponent(lblMedical)
-                            .addComponent(lblFax)
-                            .addComponent(lblName)
-                            .addComponent(lblGeo)
-                            .addComponent(lblLinkedIn)
-                            .addComponent(lblPhnNum)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblDob)
-                                .addGap(6, 6, 6))
-                            .addComponent(lblEmail))
-                        .addGap(53, 53, 53)
-                        .addComponent(btnSave))
+                        .addComponent(lblDob)
+                        .addGap(6, 6, 6))
+                    .addComponent(lblEmail)
+                    .addComponent(lblVehicle)
+                    .addComponent(lblIpa)
+                    .addComponent(lblDevice))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSave)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(341, 341, 341)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtLinkedIn)
-                                    .addComponent(txtName)
-                                    .addComponent(txtGeo)
-                                    .addComponent(txtEmail)
-                                    .addComponent(txtPhnNum)
-                                    .addComponent(txtDob, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(341, 341, 341)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtHealth, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtMedical, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtFax, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(176, 176, 176)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblVehicle)
-                                    .addComponent(lblDevice)
-                                    .addComponent(lblIpa))
-                                .addGap(53, 53, 53)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtVehicle)
-                                    .addComponent(txtDevice)
-                                    .addComponent(txtIpa))))
+                            .addComponent(txtLinkedIn)
+                            .addComponent(txtName)
+                            .addComponent(txtGeo)
+                            .addComponent(txtEmail)
+                            .addComponent(txtPhnNum)
+                            .addComponent(txtDob, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtHealth)
+                            .addComponent(txtMedical)
+                            .addComponent(txtFax, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtVehicle)
+                            .addComponent(txtDevice)
+                            .addComponent(txtIpa))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(109, 109, 109)
@@ -215,20 +214,23 @@ public class CreateJPanel extends javax.swing.JPanel {
                                         .addGap(10, 10, 10)
                                         .addComponent(btnImage))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblBank)
                                     .addComponent(lblSsn)
-                                    .addComponent(lblLicense))
+                                    .addComponent(lblLicense)
+                                    .addComponent(lblId))
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblSsnFormat)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtLicense, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                        .addComponent(txtBank, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jLabel1))))))
-                .addGap(0, 22, Short.MAX_VALUE))
+                                        .addComponent(txtLicense, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtBank, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtSsn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)))))))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,22 +279,26 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblVehicle)
                             .addComponent(txtVehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDevice)
                             .addComponent(txtDevice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIpa)
                             .addComponent(txtIpa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                         .addComponent(btnSave)
                         .addGap(84, 84, 84))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnImage)
-                        .addGap(18, 18, 18)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblId)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSsn)
                             .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -334,6 +340,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             profile.setVehicleId(txtVehicle.getText());
             profile.setDeviceId(txtDevice.getText());
             profile.setIpa(txtIpa.getText());
+            profile.setIdNum(Long.parseLong(txtId.getText()));
           
         }catch(Exception e) 
         {
@@ -365,6 +372,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHealthActionPerformed
 
+    private void txtIpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIpaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIpaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImage;
@@ -377,6 +388,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblFax;
     private javax.swing.JLabel lblGeo;
     private javax.swing.JLabel lblHealth;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblIpa;
     private javax.swing.JLabel lblLicense;
@@ -395,6 +407,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtFax;
     private javax.swing.JTextField txtGeo;
     private javax.swing.JTextField txtHealth;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIpa;
     private javax.swing.JTextField txtLicense;
     private javax.swing.JTextField txtLinkedIn;

@@ -31,6 +31,7 @@ public class Profile {
     private String ipa;
     private String vehicleId;
     private String deviceId;
+    private long IdNum;
 
     public String getName() {
         return name;
@@ -243,6 +244,23 @@ public class Profile {
             JOptionPane.showMessageDialog(null, "Invalid Device Identifier !!!");
         }
     }
+
+    public long getIdNum() {
+        return IdNum;
+    }
+
+    public void setIdNum(long IdNum) {
+        this.IdNum = IdNum;
+        String s = String.valueOf(IdNum);
+        if(s.matches("\\d{5}"))
+        {
+           this.IdNum = IdNum;
+        }else{
+            
+        JOptionPane.showMessageDialog(null, "Unique ID should be 5 digits !!!");
+        
+        }
+    } 
    
     
 }
