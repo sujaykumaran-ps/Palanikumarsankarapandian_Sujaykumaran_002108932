@@ -44,6 +44,21 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         txtManufacturer = new javax.swing.JTextField();
         lblManufacturer = new javax.swing.JLabel();
+        lblLicensePlate = new javax.swing.JLabel();
+        txtLicensePlate = new javax.swing.JTextField();
+        lblVin = new javax.swing.JLabel();
+        txtVin = new javax.swing.JTextField();
+        lblCity = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        lblYear = new javax.swing.JLabel();
+        txtYear = new javax.swing.JTextField();
+        lblModel = new javax.swing.JLabel();
+        txtModel = new javax.swing.JTextField();
+        lblSeats = new javax.swing.JLabel();
+        txtSeats = new javax.swing.JTextField();
+        lblColor = new javax.swing.JLabel();
+        txtColor = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -51,17 +66,17 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         tblCars.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Manufacturer", "Title 2", "Title 3", "Title 4"
+                "Manufacturer", "Model Number", "Number of Seats", "License Plate Number", "City", "Color", "Availability"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -86,8 +101,49 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtManufacturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtManufacturerActionPerformed(evt);
+            }
+        });
+
         lblManufacturer.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         lblManufacturer.setText("Car Manufacturer :");
+
+        lblLicensePlate.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblLicensePlate.setText("License Plate Number :");
+
+        lblVin.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblVin.setText("Vehicle Identification Number :");
+
+        lblCity.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblCity.setText("City :");
+
+        lblYear.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblYear.setText("Year of Manufacture :");
+
+        lblModel.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblModel.setText("Car Model :");
+
+        lblSeats.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblSeats.setText("Number of Seats :");
+
+        txtSeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSeatsActionPerformed(evt);
+            }
+        });
+
+        lblColor.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblColor.setText("Car Color :");
+
+        btnUpdate.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        btnUpdate.setText("Update Details");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -100,19 +156,57 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(532, 532, 532)
+                        .addComponent(btnView)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnDelete)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
+                                .addComponent(lblVin)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtVin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblModel)
+                                    .addComponent(lblLicensePlate))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(txtLicensePlate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblYear)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblManufacturer)
                                 .addGap(31, 31, 31)
                                 .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(532, 532, 532)
-                                .addComponent(btnView)
-                                .addGap(26, 26, 26)
-                                .addComponent(btnDelete)))
+                                .addComponent(lblSeats)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(145, 145, 145)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCity)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblColor)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnUpdate)
+                .addGap(603, 603, 603))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,11 +219,43 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete))
-                .addGap(26, 26, 26)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblManufacturer)
+                            .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModel)
+                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCity)
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblColor)
+                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblManufacturer)
-                    .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(294, Short.MAX_VALUE))
+                    .addComponent(lblSeats)
+                    .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLicensePlate)
+                    .addComponent(txtLicensePlate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVin)
+                    .addComponent(txtVin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblYear)
+                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,7 +264,7 @@ public class ViewJPanel extends javax.swing.JPanel {
          int selectedRowIndex = tblCars.getSelectedRow();
         
         if(selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a car Detail to Delete.");
+            JOptionPane.showMessageDialog(this, "Please select a car Detail to View.");
             return;
         }
         
@@ -146,7 +272,13 @@ public class ViewJPanel extends javax.swing.JPanel {
         UberCars selectedCars = (UberCars)model.getValueAt(selectedRowIndex, 0);
         
         txtManufacturer.setText(selectedCars.getManufacturer());
-        //txtYearOfManufacture.setText(String.valueOf(selectedCars.getYearOfManufacture()));
+        txtModel.setText(selectedCars.getModelNum());
+        txtSeats.setText(String.valueOf(selectedCars.getSeats()));
+        txtLicensePlate.setText(selectedCars.getLicensePlate());
+        txtVin.setText(selectedCars.getVin());
+        txtYear.setText(String.valueOf(selectedCars.getYearOfManufacture()));
+        txtCity.setText(selectedCars.getCity());
+        txtColor.setText(selectedCars.getColor());
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -169,15 +301,69 @@ public class ViewJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void txtSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSeatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSeatsActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int i = tblCars.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)tblCars.getModel();
+        UberCars selectedCars = (UberCars)model.getValueAt(i, 0);
+        
+        selectedCars.setManufacturer(txtManufacturer.getText());
+        selectedCars.setModelNum(txtModel.getText());
+        selectedCars.setLicensePlate(txtLicensePlate.getText());
+        selectedCars.setVin(txtVin.getText());
+        selectedCars.setCity(txtCity.getText());
+        selectedCars.setYearOfManufacture(Integer.parseInt(txtYear.getText()));
+        selectedCars.setSeats(Integer.parseInt(txtSeats.getText()));
+        selectedCars.setColor(txtColor.getText());
+        list.updateCars(i, selectedCars);
+        JOptionPane.showMessageDialog(this, "Car Details Updated Successfully !!!");
+        if(i >= 0) {
+            model.setValueAt(txtManufacturer.getText(), i, 0);
+            model.setValueAt(txtModel.getText(), i, 1);
+            model.setValueAt(txtSeats.getText(), i, 2);
+            model.setValueAt(txtLicensePlate.getText(), i, 3);
+            model.setValueAt(txtCity.getText(), i, 4);
+            model.setValueAt(txtColor.getText(), i, 5);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Error Updating Field !!!");
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtManufacturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtManufacturerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblColor;
+    private javax.swing.JLabel lblLicensePlate;
     private javax.swing.JLabel lblManufacturer;
+    private javax.swing.JLabel lblModel;
+    private javax.swing.JLabel lblSeats;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblVin;
+    private javax.swing.JLabel lblYear;
     private javax.swing.JTable tblCars;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtLicensePlate;
     private javax.swing.JTextField txtManufacturer;
+    private javax.swing.JTextField txtModel;
+    private javax.swing.JTextField txtSeats;
+    private javax.swing.JTextField txtVin;
+    private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
@@ -185,8 +371,13 @@ public class ViewJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(UberCars uc : list.getList()){
-            Object[] row = new Object[3];
+            Object[] row = new Object[7];
             row[0] = uc;
+            row[1] = uc.getModelNum();
+            row[2] = uc.getSeats();
+            row[3] = uc.getLicensePlate();
+            row[4] = uc.getCity();
+            row[5] = uc.getColor();
             
             model.addRow(row);
         }

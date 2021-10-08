@@ -50,8 +50,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnView" max="32767" attributes="0"/>
                           <Component id="btnCreate" max="32767" attributes="0"/>
-                          <Component id="btnView" min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -86,7 +86,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Sans" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="View Cars"/>
+                <Property name="text" type="java.lang.String" value="View / Update"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewActionPerformed"/>

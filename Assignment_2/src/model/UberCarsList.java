@@ -31,6 +31,11 @@ public class UberCarsList {
         list.add(newCars);
         return newCars;
     }
+    
+    public UberCars updateCars(int i, UberCars uc) {
+        list.set(i, uc);
+        return uc;
+    }
 
     public void deleteCars(UberCars uc) {
         list.remove(uc);

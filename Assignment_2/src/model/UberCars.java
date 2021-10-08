@@ -13,7 +13,11 @@ public class UberCars {
     private String manufacturer;
     private int yearOfManufacture; 
     private int seats;
-    private String City;
+    private String city;
+    private String vin;
+    private String modelNum;
+    private String licensePlate;
+    private String Color;
 
     public String getManufacturer() {
         return manufacturer;
@@ -40,12 +44,47 @@ public class UberCars {
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
-    public void setCity(String City) {
-        this.City = City;
+    public void setCity(String city) {
+        this.city = city;
     }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public String getModelNum() {
+        return modelNum;
+    }
+
+    public void setModelNum(String modelNum) {
+        this.modelNum = modelNum;
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public String getColor() {
+        return Color;
+    }
+
+    public void setColor(String Color) {
+        this.Color = Color;
+    }
+    
+    
+    
     
     @Override
     public String toString() {
