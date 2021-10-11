@@ -37,8 +37,13 @@ public class MainJFrame extends javax.swing.JFrame {
         btnCreate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        lblCaption = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        controlPanel.setBackground(java.awt.Color.black);
 
         btnCreate.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnCreate.setText("Create");
@@ -79,15 +84,47 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(controlPanel);
 
+        workArea.setBackground(new java.awt.Color(0, 0, 0));
+
+        lblCaption.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        lblCaption.setForeground(java.awt.Color.white);
+        lblCaption.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCaption.setText("Move the way you want.");
+
+        lblTitle.setFont(new java.awt.Font("Poor Richard", 1, 48)); // NOI18N
+        lblTitle.setForeground(java.awt.Color.white);
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("UBER ");
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Palanikumarsankarapandian_Sujaykumaran_002108932\\Assignment_2\\src\\images\\Uber Logo.jpg")); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(607, 607));
+
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1362, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCaption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addGap(671, 671, 671)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(690, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 778, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addGap(209, 209, 209)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCaption)
+                .addContainerGap(415, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(workArea);
@@ -157,6 +194,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnView;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblCaption;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables

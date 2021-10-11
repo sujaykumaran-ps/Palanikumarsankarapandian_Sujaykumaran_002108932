@@ -56,6 +56,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         chkboxAvailability = new javax.swing.JCheckBox();
         chkboxMainCert = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(236, 253, 255));
+
         lblTitle.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add Car Details");
@@ -160,7 +162,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(123, 123, 123)
                 .addComponent(lblTitle)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,12 +206,36 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(chkboxMainCert))
                 .addGap(54, 54, 54)
                 .addComponent(btnSave)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        if(txtManufacturer.getText() == null || "".equals(txtManufacturer.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter valid Manufacturer Name !!!");
+        }
+        else if(txtModel.getText() == null || "".equals(txtModel.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter valid Model Name !!!");
+        }
+        else if(txtYear.getText() == null || "".equals(txtYear.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter valid Manufacturing Year !!!");
+        }
+        else if(txtSeats.getText() == null || "".equals(txtSeats.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter valid Number of Seats !!!");
+        }
+        else if(txtCity.getText() == null || "".equals(txtCity.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter valid City !!!");
+        }
+        else if(txtLicensePlate.getText() == null || "".equals(txtLicensePlate.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter valid License Plate Number !!!");
+        }
+        else if(!list.isUnique(txtLicensePlate.getText())){
+        JOptionPane.showMessageDialog(this, "Please enter Unique License Plate Number !!!");
+        }
+        
+        
+        else {
         try {
         String manufacturer = txtManufacturer.getText();
         String modelNum = txtModel.getText();
@@ -250,6 +276,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtColor.setText("");
         chkboxAvailability.setSelected(false);
         chkboxMainCert.setSelected(false);
+        
+        }
         
         
 

@@ -55,4 +55,12 @@ public class UberCarsList {
         lastUpdate = new Date().toString();
         list.remove(uc);
     }
+
+    public boolean isUnique(String licenseNum) {
+        for(UberCars uc : list) {
+        if(uc.getLicensePlate().equals(licenseNum))
+        return false;
+        }
+        return true;
+    }
 }
