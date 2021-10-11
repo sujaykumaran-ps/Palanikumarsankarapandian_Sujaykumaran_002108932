@@ -51,6 +51,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtSeats = new javax.swing.JTextField();
         lblColor = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
+        lblAvailability = new javax.swing.JLabel();
+        lblMainCert = new javax.swing.JLabel();
+        chkboxAvailability = new javax.swing.JCheckBox();
+        chkboxMainCert = new javax.swing.JCheckBox();
 
         lblTitle.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -100,43 +104,57 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblColor.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         lblColor.setText("Car Color :");
 
+        lblAvailability.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblAvailability.setText("Availablility :");
+
+        lblMainCert.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblMainCert.setText("Maintenance Certificate :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(378, 378, 378)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblColor)
-                        .addGap(31, 31, 31)
-                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblVin)
-                        .addGap(31, 31, 31)
-                        .addComponent(txtVin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(378, 378, 378)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblManufacturer)
-                            .addComponent(lblModel)
-                            .addComponent(lblLicensePlate)
-                            .addComponent(lblSeats))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLicensePlate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave)
-                            .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblVin)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtVin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblManufacturer)
+                                    .addComponent(lblModel)
+                                    .addComponent(lblLicensePlate)
+                                    .addComponent(lblSeats))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtLicensePlate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblColor, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblYear, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblAvailability, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblMainCert, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkboxMainCert)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(chkboxAvailability))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblYear)
-                            .addComponent(lblCity))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(576, 576, 576)
+                        .addComponent(btnSave)))
                 .addContainerGap(567, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -176,9 +194,17 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblColor)
                     .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAvailability)
+                    .addComponent(chkboxAvailability))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMainCert)
+                    .addComponent(chkboxMainCert))
+                .addGap(54, 54, 54)
                 .addComponent(btnSave)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,7 +219,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         String color = txtColor.getText();
         int yearOfManufacture = Integer.parseInt(txtYear.getText());
         int seats = Integer.parseInt(txtSeats.getText());
-        
+        Boolean avail = chkboxAvailability.isSelected();
+        Boolean mainCert = chkboxMainCert.isSelected();
         
         
         UberCars uc = list.addNewCars();
@@ -206,6 +233,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         uc.setYearOfManufacture(yearOfManufacture);
         uc.setSeats(seats);
         uc.setColor(color);
+        uc.setAvail(avail);
+        uc.setMainCert(mainCert);
         
         } catch(Exception e) {}
         
@@ -219,6 +248,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtYear.setText("");
         txtSeats.setText("");
         txtColor.setText("");
+        chkboxAvailability.setSelected(false);
+        chkboxMainCert.setSelected(false);
         
         
 
@@ -235,9 +266,13 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JCheckBox chkboxAvailability;
+    private javax.swing.JCheckBox chkboxMainCert;
+    private javax.swing.JLabel lblAvailability;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblLicensePlate;
+    private javax.swing.JLabel lblMainCert;
     private javax.swing.JLabel lblManufacturer;
     private javax.swing.JLabel lblModel;
     private javax.swing.JLabel lblSeats;

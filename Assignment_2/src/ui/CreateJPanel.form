@@ -17,45 +17,57 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="lblColor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="txtColor" min="-2" pref="200" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="lblVin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="txtVin" min="-2" pref="200" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblManufacturer" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblModel" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblLicensePlate" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblSeats" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtLicensePlate" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtManufacturer" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="txtSeats" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="txtModel" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblVin" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="txtVin" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblManufacturer" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblModel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLicensePlate" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSeats" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtLicensePlate" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtManufacturer" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtSeats" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtModel" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblColor" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblYear" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAvailability" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMainCert" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="chkboxMainCert" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="txtCity" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="txtYear" min="-2" pref="200" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtColor" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="chkboxAvailability" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblYear" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCity" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtCity" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="txtYear" min="-2" pref="200" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="576" max="-2" attributes="0"/>
+                      <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="567" max="32767" attributes="0"/>
@@ -107,9 +119,19 @@
                   <Component id="lblColor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtColor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAvailability" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkboxAvailability" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblMainCert" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkboxMainCert" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="356" max="32767" attributes="0"/>
+              <EmptySpace pref="301" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -220,6 +242,26 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtColor">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAvailability">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Sans" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Availablility :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMainCert">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Sans" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Maintenance Certificate :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkboxAvailability">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkboxMainCert">
     </Component>
   </SubComponents>
 </Form>

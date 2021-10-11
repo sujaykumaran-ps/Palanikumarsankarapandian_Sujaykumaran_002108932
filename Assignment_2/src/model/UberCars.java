@@ -18,6 +18,8 @@ public class UberCars {
     private String modelNum;
     private String licensePlate;
     private String Color;
+    private Boolean avail;
+    private Boolean mainCert;
 
     public String getManufacturer() {
         return manufacturer;
@@ -82,6 +84,23 @@ public class UberCars {
     public void setColor(String Color) {
         this.Color = Color;
     }
+
+    public Boolean getAvail() {
+        return avail;
+    }
+
+    public void setAvail(Boolean avail) {
+        this.avail = avail;
+    }
+
+    public Boolean getMainCert() {
+        return mainCert;
+    }
+
+    public void setMainCert(Boolean mainCert) {
+        this.mainCert = mainCert;
+    }
+    
     
     
     
