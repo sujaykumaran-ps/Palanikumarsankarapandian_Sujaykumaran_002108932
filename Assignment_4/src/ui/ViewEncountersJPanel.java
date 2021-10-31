@@ -66,6 +66,9 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
         lblCommuity = new javax.swing.JLabel();
         txtCommunity = new javax.swing.JTextField();
         btnViewEncounter = new javax.swing.JButton();
+        btnAbnormalBP = new javax.swing.JButton();
+        lblCountValue = new javax.swing.JLabel();
+        btnRefreshTable = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(236, 253, 255));
 
@@ -159,11 +162,30 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
         lblCommuity.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         lblCommuity.setText("Community :");
 
-        btnViewEncounter.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        btnViewEncounter.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         btnViewEncounter.setText("View Encounter Details");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewEncounterActionPerformed(evt);
+            }
+        });
+
+        btnAbnormalBP.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        btnAbnormalBP.setText("Filter Abnormal BP");
+        btnAbnormalBP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbnormalBPActionPerformed(evt);
+            }
+        });
+
+        lblCountValue.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        lblCountValue.setForeground(new java.awt.Color(255, 0, 0));
+
+        btnRefreshTable.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        btnRefreshTable.setText("Refresh Table");
+        btnRefreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshTableActionPerformed(evt);
             }
         });
 
@@ -179,56 +201,64 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
                             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1344, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(100, 100, 100)
-                                    .addComponent(txtPulseRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lbPulseRate))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblInsurance)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(txtInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblFirstName)
-                                            .addComponent(lblLastName))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblCommuity)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(128, 128, 128)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblEnc)
-                                            .addComponent(lblBloodPressure))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblBodyTemp)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(13, 13, 13)
-                                                .addComponent(lblRespirationRate)))
-                                        .addGap(29, 29, 29)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtRespirationRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtBodyTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(418, 418, 418)
+                        .addComponent(btnViewEncounter)
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCountValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAbnormalBP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRefreshTable)
+                        .addGap(18, 18, 18)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(475, 475, 475)
-                .addComponent(btnViewEncounter)
+                .addGap(242, 242, 242)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(100, 100, 100)
+                            .addComponent(txtPulseRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbPulseRate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInsurance)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblFirstName)
+                                    .addComponent(lblLastName))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCommuity)
+                                .addGap(31, 31, 31)
+                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(128, 128, 128)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEnc)
+                                    .addComponent(lblBloodPressure))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblBodyTemp)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(lblRespirationRate)))
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRespirationRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtBodyTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -238,9 +268,15 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
                 .addComponent(lblTitle)
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnViewEncounter)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRefreshTable)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewEncounter)
+                    .addComponent(btnAbnormalBP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCountValue, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFirstName)
                     .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +304,7 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbPulseRate)
                     .addComponent(txtPulseRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -319,14 +355,46 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnViewEncounterActionPerformed
 
+    private void btnAbnormalBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbnormalBPActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblPatientEncounter.getModel();
+        model.setRowCount(0);
+        
+        for(Patient pat : patientList.getPatientList()){
+            if(pat.getVitalSigns().getBloodPressure() >= 130 )
+            {
+            Object[] row = new Object[8];
+            row[0] = pat;
+            row[1] = pat.getPersonLastName();
+            row[2] = pat.getPatientId();
+            row[3] = pat.getCommunityName();
+            row[4] = pat.getEncounter().getEncounterDate();
+            row[5] = pat.getVitalSigns().getBloodPressure();
+            row[6] = pat.getVitalSigns().getBodyTemp();
+            row[7] = pat.getVitalSigns().getPulseRate();
+            
+            model.addRow(row);
+            }
+        }
+        lblCountValue.setText("Abnormal BP Count -  " + String.valueOf(model.getRowCount()));
+    }//GEN-LAST:event_btnAbnormalBPActionPerformed
+
+    private void btnRefreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshTableActionPerformed
+        populateViewTable();
+        lblCountValue.setText("");
+    }//GEN-LAST:event_btnRefreshTableActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbnormalBP;
+    private javax.swing.JButton btnRefreshTable;
     private javax.swing.JButton btnViewEncounter;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbPulseRate;
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblBodyTemp;
     private javax.swing.JLabel lblCommuity;
+    private javax.swing.JLabel lblCountValue;
     private javax.swing.JLabel lblEnc;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblInsurance;
