@@ -20,18 +20,9 @@ public class Encounter extends Patient {
     
     public Encounter() {
         this.vitalSigns = new VitalSigns();
-        this.encounterDate = new Date().toString();
-    }
-
-    public VitalSigns getVitalSigns() {
-        return vitalSigns;
-    }
-
-    public void setVitalSigns(VitalSigns vitalSigns) {
-        this.vitalSigns = vitalSigns;
+     
     }
     
-
     public String getEncounterDate() { 
         return encounterDate;
     }

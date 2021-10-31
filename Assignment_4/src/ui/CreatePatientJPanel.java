@@ -108,7 +108,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         lblLastName.setText("Last Name :");
 
         lblInsurance.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        lblInsurance.setText("Insurance ID :");
+        lblInsurance.setText("Patient ID :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,7 +116,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(437, 437, 437)
+                .addGap(470, 470, 470)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -156,7 +156,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
                             .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(600, Short.MAX_VALUE))
+                .addContainerGap(567, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +233,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         pat.setPersonLastName(personLastName);
         pat.setAge(age);
         pat.setGender(gender);
-        pat.setInsuranceId(insuranceId);
+        pat.setPatientId(insuranceId);
         pat.setPhNo(phNo);
         pat.setHouseNumber(houseNumber);
         pat.setCommunityName(communityName);

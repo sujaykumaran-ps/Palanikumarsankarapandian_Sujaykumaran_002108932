@@ -79,6 +79,7 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         txtPulseRate = new javax.swing.JTextField();
         lbPulseRate = new javax.swing.JLabel();
         btnAddVitalDetails = new javax.swing.JButton();
+        btnDeletePatient = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(236, 253, 255));
 
@@ -102,7 +103,7 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "First Name", "Last Name", "Age", "Gender", "Insurance ID", "Community", "City"
+                "First Name", "Last Name", "Age", "Gender", "Patient ID", "Community", "City"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -160,7 +161,7 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         });
 
         lblInsurance.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        lblInsurance.setText("Insurance ID :");
+        lblInsurance.setText("Patient ID :");
 
         lblEnc.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         lblEnc.setText("Encounter Date/Time :");
@@ -209,6 +210,14 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeletePatient.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        btnDeletePatient.setText("Delete Patient Data");
+        btnDeletePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletePatientActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,6 +232,8 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(304, 304, 304)
                         .addComponent(btnAddVitals)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnDeletePatient)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -299,7 +310,9 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(btnAddVitals)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddVitals)
+                    .addComponent(btnDeletePatient))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
@@ -373,12 +386,12 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         txtAge.setText(String.valueOf(selectedPatient.getAge()));
         txtGender.setText(selectedPatient.getGender());
         txtPhNo.setText(String.valueOf(selectedPatient.getPhNo()));
-        txtInsurance.setText(selectedPatient.getInsuranceId());
+        txtInsurance.setText(selectedPatient.getPatientId());
         txtHouse.setText(String.valueOf(selectedPatient.getHouseNumber()));
         txtCommunity.setText(selectedPatient.getCommunityName());
         txtCity.setText(selectedPatient.getCityName());
         
-        txtEnc.setText(encounter.getEncounterDate());
+        txtEnc.setText(new Date().toString());
     }//GEN-LAST:event_btnAddVitalsActionPerformed
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
@@ -416,12 +429,25 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         selectedPatient.setPersonLastName(txtLastName.getText());
         selectedPatient.setAge(Integer.parseInt(txtAge.getText()));
         selectedPatient.setGender(txtGender.getText());
-        selectedPatient.setInsuranceId(txtInsurance.getText());
+        selectedPatient.setPatientId(txtInsurance.getText());
         selectedPatient.setPhNo(Long.parseLong(txtPhNo.getText()));
         selectedPatient.setHouseNumber(Integer.parseInt(txtHouse.getText()));
         selectedPatient.setCommunityName(txtCommunity.getText());
         selectedPatient.setCityName(txtCity.getText());
         selectedPatient.newEncounter().setEncounterDate(txtEnc.getText());
+        
+        Double bp = Double.parseDouble(txtBloodPressure.getText());
+        selectedPatient.newVitals(selectedPatient).setBloodPressure(bp);
+        
+        Double bodyTemp = Double.parseDouble(txtBodyTemp.getText());
+        selectedPatient.getVitalSigns().setBodyTemp(bodyTemp);
+        
+        Double pulseRate = Double.parseDouble(txtPulseRate.getText());
+        selectedPatient.getVitalSigns().setPulseRate(pulseRate);
+        
+        Double respirationRate = Double.parseDouble(txtRespirationRate.getText());
+        selectedPatient.getVitalSigns().setRespirationRate(respirationRate);
+        
          
         patientList.updatePatientList(i, selectedPatient);
         JOptionPane.showMessageDialog(this, "Vitals Added Successfully !!!");
@@ -447,13 +473,55 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         txtCommunity.setText("");
         txtCity.setText("");
         txtPhNo.setText("");
-        txtBloodPressure.setText(selectedPatient.getEncounter().getEncounterDate());
+        txtEnc.setText("");
+        txtBloodPressure.setText("");
+        txtBodyTemp.setText("");
+        txtRespirationRate.setText("");
+        txtPulseRate.setText("");
+//        txtBloodPressure.setText(selectedPatient.getEncounter().getEncounterDate());
+        
+        
+//        txtPulseRate.setText(String.valueOf(selectedPatient.getVitalSigns().getBodyTemp()));
+        
     }//GEN-LAST:event_btnAddVitalDetailsActionPerformed
+
+    private void btnDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletePatientActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblPatient.getSelectedRow();
+
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a Patient Detail to Delete !!!");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblPatient.getModel();
+        Patient selectedPatient = (Patient)model.getValueAt(selectedRowIndex, 0);
+        
+        patientList.deletePatient(selectedPatient);
+        JOptionPane.showMessageDialog(this, "Patient Detail Deleted !!!");
+        
+        populateTable();
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtAge.setText("");
+        txtGender.setText("");
+        txtHouse.setText("");
+        txtInsurance.setText("");
+        txtCommunity.setText("");
+        txtCity.setText("");
+        txtPhNo.setText("");
+        txtEnc.setText("");
+        txtBloodPressure.setText("");
+        txtBodyTemp.setText("");
+        txtRespirationRate.setText("");
+        txtPulseRate.setText("");
+    }//GEN-LAST:event_btnDeletePatientActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddVitalDetails;
     private javax.swing.JButton btnAddVitals;
+    private javax.swing.JButton btnDeletePatient;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbPulseRate;
     private javax.swing.JLabel lblAge;
@@ -496,7 +564,7 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
             row[1] = pat.getPersonLastName();
             row[2] = pat.getAge();
             row[3] = pat.getGender();
-            row[4] = pat.getInsuranceId();
+            row[4] = pat.getPatientId();
             row[5] = pat.getCommunityName();
             row[6] = pat.getCityName();
             

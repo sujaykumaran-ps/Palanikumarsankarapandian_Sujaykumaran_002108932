@@ -15,6 +15,15 @@ public class VitalSigns {
     Double respirationRate;
     Double bodyTemp;
 
+    
+    public Double getBodyTemp() {
+        return bodyTemp;
+    }
+
+    public void setBodyTemp(Double bodyTemp) {
+        this.bodyTemp = bodyTemp;
+    }
+    
     public Double getPulseRate() {
         return pulseRate;
     }
@@ -39,13 +48,6 @@ public class VitalSigns {
         this.respirationRate = respirationRate;
     }
 
-    public Double getBodyTemp() {
-        return bodyTemp;
-    }
-
-    public void setBodyTemp(Double bodyTemp) {
-        this.bodyTemp = bodyTemp;
-    }
     
     
 }

@@ -6,6 +6,7 @@
 package ui;
 
 import model.Encounter;
+import model.EncounterHistory;
 import model.PatientDirectory;
 import model.VitalSigns;
 
@@ -17,6 +18,7 @@ public class MainJFrame extends javax.swing.JFrame {
     PatientDirectory patientList;
     Encounter encounter;
     VitalSigns vitalSigns;
+    EncounterHistory encounterHistory;
 
     /**
      * Creates new form MainJFrame
@@ -41,6 +43,7 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanelHospital = new javax.swing.JPanel();
         btnCreatePatient = new javax.swing.JButton();
         btnVitalSigns = new javax.swing.JButton();
+        btnViewEncounter = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
         lblCaption = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
@@ -65,16 +68,25 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewEncounter.setFont(new java.awt.Font("Lucida Sans", 1, 11)); // NOI18N
+        btnViewEncounter.setText("View Encounter Details");
+        btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewEncounterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout controlPanelHospitalLayout = new javax.swing.GroupLayout(controlPanelHospital);
         controlPanelHospital.setLayout(controlPanelHospitalLayout);
         controlPanelHospitalLayout.setHorizontalGroup(
             controlPanelHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelHospitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(controlPanelHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCreatePatient)
-                    .addComponent(btnVitalSigns, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGroup(controlPanelHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnViewEncounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVitalSigns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCreatePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         controlPanelHospitalLayout.setVerticalGroup(
             controlPanelHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,7 +95,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreatePatient)
                 .addGap(18, 18, 18)
                 .addComponent(btnVitalSigns)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnViewEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
         splitPaneHome.setLeftComponent(controlPanelHospital);
@@ -148,6 +162,12 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPaneHome.setRightComponent(vitalsPanel);
     }//GEN-LAST:event_btnVitalSignsActionPerformed
 
+    private void btnViewEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEncounterActionPerformed
+        // TODO add your handling code here:
+        ViewEncountersJPanel viewPanel = new ViewEncountersJPanel(patientList, encounter, vitalSigns, encounterHistory);
+        splitPaneHome.setRightComponent(viewPanel);
+    }//GEN-LAST:event_btnViewEncounterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,15 +204,12 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreatePatient;
-    private javax.swing.JButton btnView;
+    private javax.swing.JButton btnViewEncounter;
     private javax.swing.JButton btnVitalSigns;
-    private javax.swing.JPanel controlPanel;
     private javax.swing.JPanel controlPanelHospital;
     private javax.swing.JLabel lblCaption;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JSplitPane splitPane;
     private javax.swing.JSplitPane splitPaneHome;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables

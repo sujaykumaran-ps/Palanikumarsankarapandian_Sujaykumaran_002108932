@@ -33,5 +33,9 @@ public class PatientDirectory {
         patientList.set(i, pat);
         return pat;
     }
+
+    public void deletePatient(Patient pat) {
+        patientList.remove(pat);
+    }
     
 }

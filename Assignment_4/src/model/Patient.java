@@ -13,16 +13,17 @@ import java.util.ArrayList;
  */
 public class Patient extends Person {
     
-    String insuranceId;
+    String patientId;
     Encounter encounter;
     EncounterHistory encounterHistory;
+    VitalSigns vitalSigns;
 
-    public String getInsuranceId() {
-        return insuranceId;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public void setInsuranceId(String insuranceId) {
-        this.insuranceId = insuranceId;
+    public void setPatientId(String insuranceId) {
+        this.patientId = insuranceId;
     } 
     
     public Encounter newEncounter(){
@@ -33,7 +34,19 @@ public class Patient extends Person {
         return this.encounter;
     }
     
+    public VitalSigns newVitals(Patient pat){
+        if (this.vitalSigns != null){
+            pat.getVitalSigns();
+        }
+        this.vitalSigns = new VitalSigns();
+        return this.vitalSigns;
+    }
 
+    public VitalSigns getVitalSigns() {
+        return vitalSigns;
+    }
+
+    
     public Encounter getEncounter() {
         return encounter;
     }

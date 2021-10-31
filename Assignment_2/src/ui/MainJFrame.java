@@ -84,7 +84,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(0, 0, 0));
+        workArea.setBackground(new java.awt.Color(204, 204, 0));
 
         lblCaption.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         lblCaption.setForeground(java.awt.Color.white);
