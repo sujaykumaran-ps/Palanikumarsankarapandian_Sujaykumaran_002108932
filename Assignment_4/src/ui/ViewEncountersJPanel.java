@@ -444,7 +444,7 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) tblPatientEncounter.getModel();
         model.setRowCount(0);
-
+        int i = 0;
         for(Patient pat : patientList.getPatientList()){
             if(pat.getCommunityName().equals(selectedComm))
             {
@@ -459,8 +459,14 @@ public class ViewEncountersJPanel extends javax.swing.JPanel {
                 row[7] = pat.getVitalSigns().getPulseRate();
 
                 model.addRow(row);
+                if(pat.getVitalSigns().getBloodPressure() >= 130){
+                i = i + 1;
+            }
 
             }
+            
+            lblCountValue.setText("Abnormal BP Count -  " + i);
+            
         }
 
     }//GEN-LAST:event_btnFilterCommActionPerformed
