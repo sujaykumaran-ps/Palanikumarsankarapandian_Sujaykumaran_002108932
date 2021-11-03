@@ -15,6 +15,11 @@ public class Community extends City {
     
     String communityName;
     ArrayList <House> houseList;
+    
+    public Community(){
+        this.houseList = new ArrayList<House>();
+    }
+
 
     public ArrayList<House> getHouseList() {
         return houseList;
@@ -32,6 +37,20 @@ public class Community extends City {
         this.communityName = communityName;
     }
     
+    public House addHouse(){
+        House newDetails = new House();
+        houseList.add(newDetails);
+        return newDetails;
+        
+    }
+    public House updateHouse(int i, House h) {
+        houseList.set(i, h);
+        return h;
+    }
+    
+    public void deleteHouse(House h){
+        houseList.remove(h);
+    }
     
     @Override
     public String toString() {

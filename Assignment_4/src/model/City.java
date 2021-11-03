@@ -32,6 +32,21 @@ public class City {
         this.cityName = cityName;
     }
     
+    public Community addCommunity(){
+        Community newDetails = new Community();
+        communityList.add(newDetails);
+        return newDetails;
+        
+    }
+    public Community updateCommunity(int i, Community c) {
+        communityList.set(i, c);
+        return c;
+    }
+    
+    public void deleteCommunity(Community c){
+        communityList.remove(c);
+    }
+    
     @Override
     public String toString() {
         return cityName;

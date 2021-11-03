@@ -5,7 +5,10 @@
  */
 package ui;
 import javax.swing.JOptionPane;
+import model.City;
+import model.Community;
 import model.Encounter;
+import model.House;
 import model.Patient;
 import model.PatientDirectory;
 import model.Person;
@@ -21,9 +24,13 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
      * Creates new form CreatePatientJPanel
      */
     PatientDirectory patientList;
-    public CreatePatientJPanel(PatientDirectory patientList) {
+    Community houseList;
+    City communityList;
+    public CreatePatientJPanel(PatientDirectory patientList, Community houseList, City communityList) {
         initComponents();
         this.patientList = patientList;
+        this.houseList = houseList;
+        this.communityList = communityList;
     }
 
 
@@ -215,6 +222,40 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
 
     private void btnSaveDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDetailsActionPerformed
         // TODO add your handling code here:
+        if(txtFirstName.getText() == null || "".equals(txtFirstName.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient First Name !!!");
+        }
+        else if(txtLastName.getText() == null || "".equals(txtLastName.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient Last Name !!!");
+        }
+        else if(txtAge.getText() == null || "".equals(txtAge.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter valid Age !!!");
+        }
+        else if(txtGender.getText() == null || "".equals(txtGender.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient Gender !!!");
+        } 
+        else if(txtInsurance.getText() == null || "".equals(txtInsurance.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient ID !!!");
+        }
+        else if(txtPhNo.getText() == null || "".equals(txtPhNo.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient' Phone Number !!!");
+        }
+        else if(txtHouse.getText() == null || "".equals(txtHouse.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient House Address !!!");
+        }
+        else if(txtCommunity.getText() == null || "".equals(txtCommunity.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient Community Name!!!");
+        }
+        else if(txtCity.getText() == null || "".equals(txtCity.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient's City !!!");
+        }
+        else if(!patientList.isUnique(txtInsurance.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Unique Patient ID !!!");
+        }
+
+        else {
+            
+
         try {
         String personFirstName = txtFirstName.getText();
         String personLastName = txtLastName.getText();
@@ -225,7 +266,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         int houseNumber = Integer.parseInt(txtHouse.getText());
         String communityName = txtCommunity.getText();
         String cityName = txtCity.getText();
-        String encounterDate;
+        
         
         Patient pat = patientList.createPatient();
         
@@ -235,9 +276,17 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         pat.setGender(gender);
         pat.setPatientId(insuranceId);
         pat.setPhNo(phNo);
+        
+       
         pat.setHouseNumber(houseNumber);
-        pat.setCommunityName(communityName);
+        
+        
+        pat.setCommunityName(communityName); 
+        
+        
         pat.setCityName(cityName);
+        
+        
         } catch(Exception e) {}
         
         JOptionPane.showMessageDialog(this, "Patient Details Added Successfully.");
@@ -252,32 +301,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         txtAge.setText("");
         txtCity.setText("");
         
-//        if(txtFirstName.getText() == null || "".equals(txtFirstName.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter valid Manufacturer Name !!!");
-//        }
-//        else if(txtLastName.getText() == null || "".equals(txtLastName.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter valid Model Name !!!");
-//        }
-//        else if(txtCommunity.getText() == null || "".equals(txtCommunity.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter valid Manufacturing Year !!!");
-//        }
-//        else if(txtAge.getText() == null || "".equals(txtAge.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter valid Number of Seats !!!");
-//        }
-//        else if(txtHouse.getText() == null || "".equals(txtHouse.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter valid City !!!");
-//        }
-//        else if(txtGender.getText() == null || "".equals(txtGender.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter valid License Plate Number !!!");
-//        }
-//        else if(!list.isUnique(txtGender.getText())){
-//            JOptionPane.showMessageDialog(this, "Please enter Unique License Plate Number !!!");
-//        }
-//
-//        else {
-//            
 
-        
+        }
 
     }//GEN-LAST:event_btnSaveDetailsActionPerformed
 

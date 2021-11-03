@@ -13,10 +13,13 @@ import java.util.ArrayList;
  */
 public class Patient extends Person {
     
-    String patientId;
-    Encounter encounter;
-    EncounterHistory encounterHistory;
-    VitalSigns vitalSigns;
+    private String patientId;
+    private Encounter encounter;
+    private EncounterHistory encounterHistory;
+    private VitalSigns vitalSigns;
+    private House house;
+    private Community community;
+    private City city;
 
     public String getPatientId() {
         return patientId;
@@ -61,6 +64,30 @@ public class Patient extends Person {
 
     public void setEncounterHistory(EncounterHistory encounterHistory) {
         this.encounterHistory = encounterHistory;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
     
     

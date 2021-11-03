@@ -11,8 +11,8 @@ package model;
  */
 public class House extends Community {
     
-    String streetName;
-    int houseNumber;
+    private String streetName;
+    private int houseNumber;
 
     public String getStreetName() {
         return streetName;

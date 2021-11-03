@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.City;
+import model.Community;
 import model.Encounter;
 import model.Patient;
 import model.PatientDirectory;
@@ -27,11 +29,15 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
     PatientDirectory patientList;
     Encounter encounter;
     VitalSigns vitalSigns;
+    Community houseList;
+    City communityList;
     public AddVitalSignsJPanel(PatientDirectory patientList, Encounter encounter, VitalSigns vitalSigns) {
         initComponents();
         this.patientList = patientList;
         this.encounter = encounter;
         this.vitalSigns = vitalSigns;
+        this.houseList = houseList;
+        this.communityList = communityList;
         populateTable();
     }
     
@@ -67,8 +73,6 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         lblHouse = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
         lblInsurance = new javax.swing.JLabel();
-        txtInsurance = new javax.swing.JTextField();
-        txtEnc = new javax.swing.JTextField();
         lblEnc = new javax.swing.JLabel();
         txtBloodPressure = new javax.swing.JTextField();
         lblBloodPressure = new javax.swing.JLabel();
@@ -82,6 +86,9 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         btnDeletePatient = new javax.swing.JButton();
         btnViewPatient = new javax.swing.JButton();
         btnUpdatePatient = new javax.swing.JButton();
+        txtInsurance = new javax.swing.JLabel();
+        txtEnc = new javax.swing.JLabel();
+        lblTitle2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(236, 253, 255));
 
@@ -236,6 +243,13 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtInsurance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        txtEnc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        lblTitle2.setFont(new java.awt.Font("Lucida Sans", 1, 15)); // NOI18N
+        lblTitle2.setText("Add Vital Signs For the Selected Patient");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -250,74 +264,77 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(276, 276, 276)
+                                .addComponent(btnViewPatient)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnAddVitals))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblFirstName)
-                                            .addComponent(lblLastName)
-                                            .addComponent(lblGender)
-                                            .addComponent(lblAge))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lblFirstName)
+                                                .addComponent(lblLastName)
+                                                .addComponent(lblGender)
+                                                .addComponent(lblAge))
+                                            .addGap(31, 31, 31)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(lblPhNo)
                                             .addGap(31, 31, 31)
                                             .addComponent(txtPhNo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(lblCommuity, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(lblHouse, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(lblInsurance, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(lblInsurance)
                                             .addGap(31, 31, 31)
+                                            .addComponent(txtInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblCommuity, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblHouse, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(31, 31, 31)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                .addGap(242, 242, 242)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblBodyTemp)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(13, 13, 13)
+                                            .addComponent(lblRespirationRate)))
+                                    .addGap(29, 29, 29)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtRespirationRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtBodyTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPulseRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(lblEnc)
-                                                .addComponent(lblBloodPressure))
-                                            .addGap(31, 31, 31)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblBodyTemp)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(13, 13, 13)
-                                                    .addComponent(lblRespirationRate)))
-                                            .addGap(29, 29, 29)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtRespirationRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtBodyTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtPulseRate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(70, 70, 70)
-                                        .addComponent(lbPulseRate))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(117, 117, 117)
-                                        .addComponent(btnAddVitalDetails))))
+                                        .addComponent(lblEnc)
+                                        .addComponent(lblBloodPressure))
+                                    .addGap(31, 31, 31)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtBloodPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(txtEnc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblTitle2)
+                                    .addGap(15, 15, 15)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(276, 276, 276)
-                                .addComponent(btnViewPatient)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnAddVitals)
-                                .addGap(35, 35, 35)
-                                .addComponent(btnDeletePatient)))
+                                .addGap(70, 70, 70)
+                                .addComponent(lbPulseRate))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(btnAddVitalDetails))
+                            .addComponent(btnDeletePatient))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -337,8 +354,21 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                     .addComponent(btnAddVitals)
                     .addComponent(btnDeletePatient)
                     .addComponent(btnViewPatient))
-                .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInsurance)
+                                .addGap(16, 16, 16))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtInsurance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTitle2)
+                        .addGap(30, 30, 30)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFirstName)
@@ -361,17 +391,17 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                             .addComponent(txtPhNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblInsurance)
-                            .addComponent(txtInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblHouse)
+                            .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHouse)
-                            .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblCommuity)
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblEnc)
-                                .addComponent(txtEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblBloodPressure)
@@ -389,20 +419,14 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
                                 .addComponent(lbPulseRate)
                                 .addComponent(txtPulseRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(46, 46, 46))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnAddVitalDetails))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCommuity)
-                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAddVitalDetails, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(btnUpdatePatient)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -563,7 +587,34 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
 
     private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed
         // TODO add your handling code here:
-         int i = tblPatient.getSelectedRow();
+        if(txtFirstName.getText() == null || "".equals(txtFirstName.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient First Name !!!");
+        }
+        else if(txtLastName.getText() == null || "".equals(txtLastName.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient Last Name !!!");
+        }
+        else if(txtAge.getText() == null || "".equals(txtAge.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter valid Age !!!");
+        }
+        else if(txtGender.getText() == null || "".equals(txtGender.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient Gender !!!");
+        } 
+        else if(txtPhNo.getText() == null || "".equals(txtPhNo.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient' Phone Number !!!");
+        }
+        else if(txtHouse.getText() == null || "".equals(txtHouse.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient House Address !!!");
+        }
+        else if(txtCommunity.getText() == null || "".equals(txtCommunity.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient Community Name!!!");
+        }
+        else if(txtCity.getText() == null || "".equals(txtCity.getText())){
+            JOptionPane.showMessageDialog(this, "Please enter Patient's City !!!");
+        }
+        
+
+        else {
+        int i = tblPatient.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)tblPatient.getModel();
         Patient selectedPatient = (Patient)model.getValueAt(i, 0);
         
@@ -607,6 +658,7 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
         txtBodyTemp.setText("");
         txtRespirationRate.setText("");
         txtPulseRate.setText("");
+        }
         
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
 
@@ -633,17 +685,18 @@ public class AddVitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPhNo;
     private javax.swing.JLabel lblRespirationRate;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTitle2;
     private javax.swing.JTable tblPatient;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtBodyTemp;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCommunity;
-    private javax.swing.JTextField txtEnc;
+    private javax.swing.JLabel txtEnc;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtHouse;
-    private javax.swing.JTextField txtInsurance;
+    private javax.swing.JLabel txtInsurance;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtPhNo;
     private javax.swing.JTextField txtPulseRate;

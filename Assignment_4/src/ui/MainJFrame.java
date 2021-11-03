@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.City;
+import model.Community;
 import model.Encounter;
 import model.EncounterHistory;
 import model.PatientDirectory;
@@ -16,6 +18,8 @@ import model.VitalSigns;
  */
 public class MainJFrame extends javax.swing.JFrame {
     PatientDirectory patientList;
+    Community houseList;
+    City communityList;
     Encounter encounter;
     VitalSigns vitalSigns;
     EncounterHistory encounterHistory;
@@ -152,7 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePatientActionPerformed
         // TODO add your handling code here:
-        CreatePatientJPanel createPanel = new CreatePatientJPanel(patientList);
+        CreatePatientJPanel createPanel = new CreatePatientJPanel(patientList, houseList, communityList );
         splitPaneHome.setRightComponent(createPanel);
     }//GEN-LAST:event_btnCreatePatientActionPerformed
 

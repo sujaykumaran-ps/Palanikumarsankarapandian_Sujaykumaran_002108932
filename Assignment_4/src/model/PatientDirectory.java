@@ -38,4 +38,12 @@ public class PatientDirectory {
         patientList.remove(pat);
     }
     
+    public boolean isUnique(String patientId) {
+        for(Patient pat : patientList) {
+        if(pat.getPatientId().equals(patientId))
+        return false;
+        }
+        return true;
+    }
+    
 }

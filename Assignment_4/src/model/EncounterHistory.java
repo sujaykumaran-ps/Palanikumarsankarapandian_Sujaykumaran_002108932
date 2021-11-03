@@ -13,9 +13,10 @@ import java.util.ArrayList;
  */
 public class EncounterHistory {
     private ArrayList<Encounter> encounterHistory;
+    
 
     public EncounterHistory() {
-        encounterHistory = new ArrayList<Encounter>();
+        this.encounterHistory = new ArrayList<Encounter>();
     }
 
     public ArrayList<Encounter> getEncounterHistory() {
@@ -25,6 +26,19 @@ public class EncounterHistory {
     public void setEncounterHistory(ArrayList<Encounter> encounterHistory) {
         this.encounterHistory = encounterHistory;
     }
+    public Encounter addEncounter(){
+        Encounter newDetails = new Encounter();
+        encounterHistory.add(newDetails);
+        return newDetails;
+        
+    }
+    public Encounter updateEncounter(int i, Encounter c) {
+        encounterHistory.set(i, c);
+        return c;
+    }
     
+    public void deleteEncounter(Encounter c){
+              encounterHistory.remove(c);
+    }
     
 }

@@ -16,6 +16,7 @@ import java.util.Date;
 public class Encounter extends Patient {
     
     VitalSigns vitalSigns;
+    Patient patient;
     String encounterDate;
     
     public Encounter() {
@@ -30,5 +31,22 @@ public class Encounter extends Patient {
     public void setEncounterDate(String encounterDate) {
         this.encounterDate = encounterDate;
     }
+
+    public VitalSigns getVitalSigns() {
+        return vitalSigns;
+    }
+
+    public void setVitalSigns(VitalSigns vitalSigns) {
+        this.vitalSigns = vitalSigns;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+    
     
 }
