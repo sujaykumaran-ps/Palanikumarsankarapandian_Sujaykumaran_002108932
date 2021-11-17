@@ -38,9 +38,43 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     public void populateTree(){
         DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
        // Add the code for draw your system structure shown by JTree
-        DefaultMutableTreeNode Restaurant=new DefaultMutableTreeNode("Restaurants");
-        DefaultMutableTreeNode Customers=new DefaultMutableTreeNode("Customers");
-        DefaultMutableTreeNode DeliveryMan=new DefaultMutableTreeNode("Delivery Man");
+        DefaultMutableTreeNode Restaurant = new DefaultMutableTreeNode("Restaurants");
+        DefaultMutableTreeNode Customers = new DefaultMutableTreeNode("Customers");
+        DefaultMutableTreeNode DeliveryMan = new DefaultMutableTreeNode("Delivery Man");
+        ArrayList<Restaurant> resList = ecosystem.getRestaurantDirectory().getRestaurantList();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+         root.removeAllChildren();
+        root.insert(Restaurant, 0);
+        DefaultMutableTreeNode restaurantNode;
+        DefaultMutableTreeNode customerNode;
+        Restaurant restaurant;
+        
+        for(int i=0;i<resList.size();i++){
+            restaurant=resList.get(i);
+            restaurantNode = new DefaultMutableTreeNode(restaurant.getUserName());
+            Restaurant.insert(restaurantNode, i);
+        }
+        
+        ArrayList<Customer> cusList = ecosystem.getCustomerDirectory().getCustomerList();
+        root.insert(Customers, 1);
+        
+        Customer customer;
+        for(int i=0;i<cusList.size();i++){
+            customer=cusList.get(i);
+            customerNode=new DefaultMutableTreeNode(customer.getCusUsername());
+            Customers.insert(customerNode, i);
+        }
+        
+        ArrayList<DeliveryMan> deliveryManList = ecosystem.getDeliveryManDirectory().getDeliveryManList();
+        root.insert(DeliveryMan, 2);
+        DefaultMutableTreeNode DeliveryManNode;
+        DeliveryMan deliveryMan;
+        
+        for(int i=0;i<deliveryManList.size();i++){
+            deliveryMan=deliveryManList.get(i);
+            DeliveryManNode=new DefaultMutableTreeNode(deliveryMan.getDelUsername());
+            DeliveryMan.insert(DeliveryManNode, i);
+        }
         
         model.reload();
 
@@ -158,18 +192,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCustomersActionPerformed
-       
+        ManageCustomersJPanel manageCustomersJPanel=new ManageCustomersJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("Manage Customer",manageCustomersJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageCustomersActionPerformed
 
     private void btnManageRestaurantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantsActionPerformed
-        ManageRestaurantsJPanel manageEnterpriseJPanel=new ManageRestaurantsJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("Manage Restaurnts",manageEnterpriseJPanel);
+        ManageRestaurantsJPanel manageRestaurantsJPanel=new ManageRestaurantsJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("Manage Restaurnts",manageRestaurantsJPanel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageRestaurantsActionPerformed
 
     private void btnManageDeliveryMenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryMenActionPerformed
-       
+        ManageDeliveryManJPanel manageDeliveryManJPanel=new ManageDeliveryManJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("Manage DeliveryMan",manageDeliveryManJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDeliveryMenActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged

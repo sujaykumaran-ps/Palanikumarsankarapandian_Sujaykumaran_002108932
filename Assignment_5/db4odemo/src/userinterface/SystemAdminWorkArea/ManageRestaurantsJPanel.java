@@ -24,7 +24,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        populateNetworkTable();
+        populateRestaurantTable();
     }
 
     /**
@@ -37,7 +37,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        restaurantsJTable = new javax.swing.JTable();
+        tblRestaurants = new javax.swing.JTable();
         txtResName = new javax.swing.JTextField();
         btnResBack = new javax.swing.JButton();
         btnSubmitRestaurant = new javax.swing.JButton();
@@ -48,9 +48,11 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
         btnUpdateRestaurant = new javax.swing.JButton();
         btnDeleteRestaurant = new javax.swing.JButton();
         lblResUsername = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        titleManageRestaurants = new javax.swing.JLabel();
 
-        restaurantsJTable.setModel(new javax.swing.table.DefaultTableModel(
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblRestaurants.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -76,7 +78,10 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(restaurantsJTable);
+        jScrollPane1.setViewportView(tblRestaurants);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 496, 91));
+        add(txtResName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 144, -1));
 
         btnResBack.setText("<< Back");
         btnResBack.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +89,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
                 btnResBackActionPerformed(evt);
             }
         });
+        add(btnResBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
         btnSubmitRestaurant.setText("Submit");
         btnSubmitRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -91,18 +97,23 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
                 btnSubmitRestaurantActionPerformed(evt);
             }
         });
+        add(btnSubmitRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
 
         lblResName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblResName.setText("Restaurant Name:");
+        add(lblResName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
+        add(txtResUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 144, -1));
 
         lblResPassword.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblResPassword.setText("Password:");
+        add(lblResPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
 
         txtResPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResPasswordActionPerformed(evt);
             }
         });
+        add(txtResPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 144, -1));
 
         btnUpdateRestaurant.setText("Update");
         btnUpdateRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +121,7 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
                 btnUpdateRestaurantActionPerformed(evt);
             }
         });
+        add(btnUpdateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
 
         btnDeleteRestaurant.setText("Delete");
         btnDeleteRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -117,86 +129,16 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
                 btnDeleteRestaurantActionPerformed(evt);
             }
         });
+        add(btnDeleteRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, -1, -1));
 
         lblResUsername.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblResUsername.setText("Username:");
+        add(lblResUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, 20));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Restaurants");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(259, 259, 259)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblResName)
-                                            .addComponent(lblResUsername)
-                                            .addComponent(lblResPassword))
-                                        .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtResName, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtResUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtResPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(99, 99, 99)
-                                        .addComponent(btnSubmitRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(320, 320, 320)
-                                        .addComponent(btnUpdateRestaurant)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnDeleteRestaurant))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 173, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnResBack, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(btnResBack)
-                .addGap(56, 56, 56)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateRestaurant)
-                    .addComponent(btnDeleteRestaurant))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblResName)
-                    .addComponent(txtResName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtResUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblResUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblResPassword)
-                    .addComponent(txtResPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btnSubmitRestaurant)
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
+        titleManageRestaurants.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titleManageRestaurants.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleManageRestaurants.setText("Manage Restaurants");
+        add(titleManageRestaurants, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 816, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResBackActionPerformed
@@ -227,18 +169,18 @@ public class ManageRestaurantsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnResBack;
     private javax.swing.JButton btnSubmitRestaurant;
     private javax.swing.JButton btnUpdateRestaurant;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblResName;
     private javax.swing.JLabel lblResPassword;
     private javax.swing.JLabel lblResUsername;
-    private javax.swing.JTable restaurantsJTable;
+    private javax.swing.JTable tblRestaurants;
+    private javax.swing.JLabel titleManageRestaurants;
     private javax.swing.JTextField txtResName;
     private javax.swing.JPasswordField txtResPassword;
     private javax.swing.JTextField txtResUsername;
     // End of variables declaration//GEN-END:variables
 
-    private void populateNetworkTable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void populateRestaurantTable() {
+       
     }
 }
