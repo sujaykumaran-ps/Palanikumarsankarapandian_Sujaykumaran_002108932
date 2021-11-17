@@ -127,7 +127,7 @@ public class MainJFrame extends javax.swing.JFrame {
         try {
            if(user==null){
                  
-                JOptionPane.showMessageDialog(null," Invalid User Name or Password ");
+                JOptionPane.showMessageDialog(null," Invalid UserName or Password !!!");
                 userNameJTextField.setText("");
                 passwordField.setText("");    
             }

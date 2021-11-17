@@ -5,10 +5,15 @@
  */
 package Business.DeliveryMan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
 public class DeliveryMan {
+    private String delName;
+    private String delUserName;
+    
     
 }
