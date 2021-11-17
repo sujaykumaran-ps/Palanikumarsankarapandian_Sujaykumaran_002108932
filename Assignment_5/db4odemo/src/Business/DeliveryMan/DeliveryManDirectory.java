@@ -36,6 +36,20 @@ public class DeliveryManDirectory {
         this.deliveryMan = deliveryMan;
     }
     
+    public DeliveryMan createDeliveryMan(String username){
+        deliveryMan = new DeliveryMan(username);
+        deliveryManList.add(deliveryMan);
+        return deliveryMan;
+    }
+    
+    public void deleteDeliveryMan(String username){
+         for(int i=0; i < deliveryManList.size(); i++){
+            if(deliveryManList.get(i).getDelUsername().equals(username)){
+                deliveryManList.remove(i);
+            }
+        }
+    }
+    
     
     
 }

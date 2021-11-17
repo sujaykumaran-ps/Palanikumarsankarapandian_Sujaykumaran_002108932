@@ -14,6 +14,7 @@ import Business.WorkQueue.WorkQueue;
  */
 public class UserAccount {
     
+    private String name;
     private String username;
     private String password;
     private Employee employee;
@@ -23,7 +24,14 @@ public class UserAccount {
     public UserAccount() {
         workQueue = new WorkQueue();
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
     
     public String getUsername() {

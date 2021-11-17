@@ -5,9 +5,18 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
+import Business.Role.AdminRole;
+import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,6 +36,7 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         populateCustomersTable();
+        btnUpdateCustomer.setEnabled(false);
         
     }
 
@@ -48,11 +58,14 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         txtCusUsername = new javax.swing.JTextField();
         lblCusPassword = new javax.swing.JLabel();
         txtCusPassword = new javax.swing.JPasswordField();
-        btnUpdateCustomer = new javax.swing.JButton();
+        btnViewCustomer = new javax.swing.JButton();
         btnDeleteCustomer = new javax.swing.JButton();
         lblCusUsername = new javax.swing.JLabel();
         titleManageCustomers = new javax.swing.JLabel();
+        btnUpdateCustomer = new javax.swing.JButton();
+        btnRefreshCus = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(252, 156, 52));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
@@ -83,8 +96,8 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCustomers);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 496, 91));
-        add(txtCusName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 144, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 496, 91));
+        add(txtCusName, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 144, -1));
 
         btnCusBack.setText("<< Back");
         btnCusBack.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +105,7 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                 btnCusBackActionPerformed(evt);
             }
         });
-        add(btnCusBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        add(btnCusBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         btnSubmitCustomer.setText("Submit");
         btnSubmitCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -100,31 +113,31 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                 btnSubmitCustomerActionPerformed(evt);
             }
         });
-        add(btnSubmitCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
+        add(btnSubmitCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, -1));
 
         lblCusName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCusName.setText("Customer Name:");
-        add(lblCusName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
-        add(txtCusUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 144, -1));
+        add(lblCusName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
+        add(txtCusUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 144, -1));
 
         lblCusPassword.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCusPassword.setText("Password:");
-        add(lblCusPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
+        add(lblCusPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, -1));
 
         txtCusPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCusPasswordActionPerformed(evt);
             }
         });
-        add(txtCusPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 144, -1));
+        add(txtCusPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 144, -1));
 
-        btnUpdateCustomer.setText("Update");
-        btnUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
+        btnViewCustomer.setText("View");
+        btnViewCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateCustomerActionPerformed(evt);
+                btnViewCustomerActionPerformed(evt);
             }
         });
-        add(btnUpdateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, -1, -1));
+        add(btnViewCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, -1, -1));
 
         btnDeleteCustomer.setText("Delete");
         btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -132,41 +145,229 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                 btnDeleteCustomerActionPerformed(evt);
             }
         });
-        add(btnDeleteCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, -1, -1));
+        add(btnDeleteCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, -1, -1));
 
         lblCusUsername.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCusUsername.setText("Username:");
-        add(lblCusUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, 20));
+        add(lblCusUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, 20));
 
         titleManageCustomers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         titleManageCustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleManageCustomers.setText("Manage Customers");
         add(titleManageCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 816, -1));
+
+        btnUpdateCustomer.setText("Update");
+        btnUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateCustomerActionPerformed(evt);
+            }
+        });
+        add(btnUpdateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 490, -1, -1));
+
+        btnRefreshCus.setText("Refresh Table");
+        btnRefreshCus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshCusActionPerformed(evt);
+            }
+        });
+        add(btnRefreshCus, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCusBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusBackActionPerformed
-
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdmin = (SystemAdminWorkAreaJPanel) component;
+        sysAdmin.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnCusBackActionPerformed
 
     private void btnSubmitCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitCustomerActionPerformed
-
+        String name = txtCusName.getText();
+        String username = txtCusUsername.getText();
+        String password = txtCusPassword.getText();
+              
+        try {
+            if(name == null || name.isEmpty()){
+                throw new NullPointerException("Customer Name Field Cannot be Empty !!!");   
+            }else if(Pattern.matches("^[A-Za-z ]+$", name) == false){
+                throw new Exception("Please Enter a valid Customer Name !!!");    
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Customer Name Field Cannot be Empty !!!");
+            return;
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Please Enter a valid Customer Name !!!");
+            return;
+        }
+        
+        try {
+            if(username == null || username.isEmpty()){
+               throw new NullPointerException("Username Field Cannot be Empty !!!");
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Username Field Cannot be Empty !!!");
+            return;  
+        }
+        
+        try { 
+            if(password == null || password.isEmpty()){
+                throw new NullPointerException("Password Field Cannot be Empty !!!");
+            }else if(password.length() < 5){
+                throw new Exception("Password is too weak !!!");
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password Field Cannot be Empty !!!");
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is too weak !!!");
+            return;
+        }
+         
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(username) == false) {
+            JOptionPane.showMessageDialog(null,"Username Already Exists ! Please enter a different Username !!!");
+        }else{
+            
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount(name, username, password, null, new CustomerRole());
+        Customer cus = system.getCustomerDirectory().createCustomer(username);
+        
+        populateCustomersTable();
+        
+        txtCusName.setText("");
+        txtCusUsername.setText("");
+        txtCusPassword.setText("");
+        }
     }//GEN-LAST:event_btnSubmitCustomerActionPerformed
 
     private void txtCusPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCusPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCusPasswordActionPerformed
 
-    private void btnUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCustomerActionPerformed
+    private void btnViewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCustomerActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblCustomers.getSelectedRow();
+        
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a Customer Detail to View !!!");
+            return;
+        }
 
-    }//GEN-LAST:event_btnUpdateCustomerActionPerformed
+        else{
+            String username = (String) tblCustomers.getValueAt(selectedRow, 1);
+            String pwd = (String) tblCustomers.getValueAt(selectedRow, 2);
+            user = system.getUserAccountDirectory().authenticateUser(username, pwd);
+
+            txtCusName.setText(user.getName()+"");
+            txtCusUsername.setText(user.getUsername()+"");
+            txtCusPassword.setText(user.getPassword()+"");
+
+        }
+        
+        btnSubmitCustomer.setEnabled(false);
+        btnDeleteCustomer.setEnabled(false);
+        btnViewCustomer.setEnabled(false);
+        btnUpdateCustomer.setEnabled(true);
+    }//GEN-LAST:event_btnViewCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
         // TODO add your handling code here:
-
+        int selectedRow = tblCustomers.getSelectedRow();
+        
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a Customer Detail to Delete !!!");
+            return;
+        }
+        else {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are You Sure ???", "Warning", selectionButton);
+            if(selectionResult == JOptionPane.YES_OPTION){
+                String username = (String) tblCustomers.getValueAt(selectedRow, 1);
+                String pwd = (String) tblCustomers.getValueAt(selectedRow, 2);
+                
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
+                system.getUserAccountDirectory().deleteUserAccount(user);
+                system.getCustomerDirectory().deleteCustomer(user.getUsername());
+                populateCustomersTable();
+            }
+        }
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
+    private void btnUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCustomerActionPerformed
+        // TODO add your handling code here:
+        String name = txtCusName.getText();
+        String username = txtCusUsername.getText();
+        String password = txtCusPassword.getText();
+        
+        try {
+            if(name == null || name.isEmpty()){
+                throw new NullPointerException("Customer Name Field Cannot be Empty !!!");   
+            }else if(Pattern.matches("^[A-Za-z ]+$", name) == false){
+                throw new Exception("Please Enter a valid Customer Name !!!");    
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Customer Name Field Cannot be Empty !!!");
+            return;
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Please Enter a valid Customer Name !!!");
+            return;
+        }
+        
+        try {
+            if(username == null || username.isEmpty()){
+               throw new NullPointerException("Username Field Cannot be Empty !!!");
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Username Field Cannot be Empty !!!");
+            return;  
+        }
+        
+        try { 
+            if(password == null || password.isEmpty()){
+                throw new NullPointerException("Password Field Cannot be Empty !!!");
+            }else if(password.length() < 5){
+                throw new Exception("Password is too weak !!!");
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password Field Cannot be Empty !!!");
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is too weak !!!");
+            return;
+        }
+        
+        system.getUserAccountDirectory().updateUserAccount(user, name, username, password);
+        populateCustomersTable();
+        btnSubmitCustomer.setEnabled(true);
+        btnDeleteCustomer.setEnabled(true);
+        btnViewCustomer.setEnabled(true);
+        btnUpdateCustomer.setEnabled(false);
+        txtCusName.setText("");
+        txtCusUsername.setText("");
+        txtCusPassword.setText("");
+    }//GEN-LAST:event_btnUpdateCustomerActionPerformed
+
+    private void btnRefreshCusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshCusActionPerformed
+        // TODO add your handling code here:
+        populateCustomersTable();
+    }//GEN-LAST:event_btnRefreshCusActionPerformed
+
     private void populateCustomersTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
+        model.setRowCount(0);
+        
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+           
+            if ("Business.Role.CustomerRole".equals(user.getRole().getClass().getName())) {
+                Object[] row = new Object[3]; 
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                
+                model.addRow(row);
+            }
+            
+        }
        
     }
 
@@ -174,8 +375,10 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCusBack;
     private javax.swing.JButton btnDeleteCustomer;
+    private javax.swing.JButton btnRefreshCus;
     private javax.swing.JButton btnSubmitCustomer;
     private javax.swing.JButton btnUpdateCustomer;
+    private javax.swing.JButton btnViewCustomer;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCusName;
     private javax.swing.JLabel lblCusPassword;
