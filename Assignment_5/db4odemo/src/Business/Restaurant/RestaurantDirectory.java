@@ -19,7 +19,7 @@ public class RestaurantDirectory {
     
 
     public RestaurantDirectory(){
-        this.restaurantList=new ArrayList<Restaurant>();
+        this.restaurantList = new ArrayList<Restaurant>();
     }
 
     public ArrayList<Restaurant> getRestaurantList() {
@@ -44,13 +44,14 @@ public class RestaurantDirectory {
         }
     }
     
-    public void updateRestaurantInfo(Restaurant res, String name, String number, String address){
+    public void updateRestaurantInfo(Restaurant res, String name, String number, String address, String cuisine){
         res.setResName(name);
         res.setResAddress(address);
         res.setResPhNum(number);
+        res.setResCuisine(cuisine);
     }
     
-    public Menu addMenuDishes(Restaurant res,String name,String desc,String amount){
+    public Menu addMenuDishes(Restaurant res, String name, String desc, String amount){
         dishes = new Menu(name, desc, amount);
         res.addDishes(dishes);
         return dishes;

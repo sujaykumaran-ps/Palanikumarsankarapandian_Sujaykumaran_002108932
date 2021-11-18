@@ -33,7 +33,7 @@ public class EcoSystem extends Organization{
     
     public static EcoSystem getInstance(){
         if(business==null){
-            business=new EcoSystem();
+            business = new EcoSystem();
         }
         return business;
     }
@@ -82,12 +82,11 @@ public class EcoSystem extends Organization{
         roleList.add(new SystemAdminRole());
         return roleList;
     }
+
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
     }
-
-    
     public boolean checkIfUserIsUnique(String userName){
        //
        return false;

@@ -20,6 +20,7 @@ public class Restaurant {
     private String resName;
     private String resAddress;
     private String resPhNum;
+    private String resCuisine;
     
     public Restaurant(String name) {
         this.userName = name;
@@ -83,6 +84,16 @@ public class Restaurant {
     public void setResPhNum(String resPhNum) {
         this.resPhNum = resPhNum;
     }
+
+    public String getResCuisine() {
+        return resCuisine;
+    }
+
+    public void setResCuisine(String resCuisine) {
+        this.resCuisine = resCuisine;
+    }
+    
+    
     
     public void addDishes(Menu dish){
         dishList.add(dish);
