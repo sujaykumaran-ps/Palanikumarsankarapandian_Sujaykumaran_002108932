@@ -20,9 +20,10 @@ public class DeliveryMan {
     private String delAddress;
     private String delPhNum;
     
-    public DeliveryMan(String UserName){
-        this.delUsername = UserName;
-        orderList=new ArrayList<WorkRequest>();
+    public DeliveryMan(String name, String userName){
+        this.delName = name;
+        this.delUsername = userName;
+        orderList = new ArrayList<WorkRequest>();
     }
 
     public String getDelName() {

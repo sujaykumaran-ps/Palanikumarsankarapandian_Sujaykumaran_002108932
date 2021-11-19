@@ -228,7 +228,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         }else{
             
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(name, username, password, null, new DeliverManRole());
-        DeliveryMan deliveryMan= system.getDeliveryManDirectory().createDeliveryMan(username);
+        DeliveryMan deliveryMan= system.getDeliveryManDirectory().createDeliveryMan(name, username);
         
         populateDeliveryManTable();
         
