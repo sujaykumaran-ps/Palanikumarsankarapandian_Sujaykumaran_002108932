@@ -80,7 +80,7 @@ public class DeliveryMan {
     
     @Override
     public String toString() {
-        return delUsername;
+        return delName;
     }
     
     
