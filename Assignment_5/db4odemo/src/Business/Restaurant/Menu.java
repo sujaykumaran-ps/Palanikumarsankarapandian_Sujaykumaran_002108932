@@ -14,7 +14,7 @@ public class Menu {
     private String itemPrice;
     private String itemDescription;
 
-    public Menu(String itemName, String itemPrice, String itemDescription) {
+    public Menu(String itemName, String itemDescription, String itemPrice) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemDescription = itemDescription;

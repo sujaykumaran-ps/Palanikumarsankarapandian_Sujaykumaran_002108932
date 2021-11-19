@@ -158,7 +158,7 @@ public class DeliveryAssignmentJPanel extends javax.swing.JPanel {
             order.setStatus("Out for Delivery");
             
             for(Customer cust:system.getCustomerDirectory().getCustomerList()){
-            if(order.getCusName().equals(cust.getCusUserName())){
+            if(order.getCusName().equals(cust.getCusUsername())){
                 for(WorkRequest order : cust.getOrderList()){
                     order.setStatus("Out for Delivery");
                 }

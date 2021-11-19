@@ -96,8 +96,5 @@ public class Customer {
         return cusName;
     }
 
-    public Object getCusUserName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

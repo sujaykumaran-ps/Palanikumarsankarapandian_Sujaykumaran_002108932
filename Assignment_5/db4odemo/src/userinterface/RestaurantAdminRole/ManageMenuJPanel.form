@@ -24,15 +24,10 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="638" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="638" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
@@ -47,23 +42,14 @@
                           <Component id="txtDishDesc" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtDishAmount" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="377" max="-2" attributes="0"/>
               <Component id="btnAddDish" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnUpdateDish" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnViewDish" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnDeleteDish" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -74,12 +60,7 @@
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="107" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnDeleteDish" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnViewDish" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="txtDishName" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDishName" min="-2" max="-2" attributes="0"/>
@@ -95,10 +76,7 @@
                   <Component id="txtDishAmount" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAddDish" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnUpdateDish" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnAddDish" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="88" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -186,14 +164,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDishDescActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnDeleteDish">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteDishActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
@@ -209,16 +179,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddDishActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnViewDish">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="View"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnUpdateDish">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update Dish"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -54,11 +54,8 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         txtDishName = new javax.swing.JTextField();
         lblDishAmount = new javax.swing.JLabel();
         txtDishDesc = new javax.swing.JTextField();
-        btnDeleteDish = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnAddDish = new javax.swing.JButton();
-        btnViewDish = new javax.swing.JButton();
-        btnUpdateDish = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(252, 156, 52));
 
@@ -119,13 +116,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDeleteDish.setText("Delete");
-        btnDeleteDish.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteDishActionPerformed(evt);
-            }
-        });
-
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,10 +130,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewDish.setText("View");
-
-        btnUpdateDish.setText("Update Dish");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,13 +137,10 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(71, Short.MAX_VALUE))
+                        .addGap(79, 79, 79)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(275, 275, 275)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -168,20 +151,12 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtDishName)
                             .addComponent(txtDishDesc)
-                            .addComponent(txtDishAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtDishAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(377, 377, 377)
                 .addComponent(btnAddDish)
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdateDish)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnViewDish)
-                .addGap(18, 18, 18)
-                .addComponent(btnDeleteDish)
-                .addGap(327, 327, 327))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,11 +165,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                 .addComponent(btnBack)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteDish)
-                    .addComponent(btnViewDish))
-                .addGap(38, 38, 38)
+                .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtDishName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDishName))
@@ -207,9 +178,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                     .addComponent(lblDishAmount)
                     .addComponent(txtDishAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddDish)
-                    .addComponent(btnUpdateDish))
+                .addComponent(btnAddDish)
                 .addContainerGap(88, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -225,26 +194,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     private void txtDishDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDishDescActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDishDescActionPerformed
-
-    private void btnDeleteDishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDishActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblDishes.getSelectedRow();
-        if(selectedRow>=0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure ???", "Warning", selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
-
-                for(Restaurant res:system.getRestaurantDirectory().getRestaurantList()){
-                    if(res.getUserName().equals(ua.getUsername())){
-                        system.getRestaurantDirectory().DeleteDishes(res, dishes);
-                    }
-                }
-                populateTable();
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a Dish Item to Delete !!!");
-        }
-    }//GEN-LAST:event_btnDeleteDishActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -325,9 +274,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddDish;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDeleteDish;
-    private javax.swing.JButton btnUpdateDish;
-    private javax.swing.JButton btnViewDish;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDishAmount;
     private javax.swing.JLabel lblDishDesc;
