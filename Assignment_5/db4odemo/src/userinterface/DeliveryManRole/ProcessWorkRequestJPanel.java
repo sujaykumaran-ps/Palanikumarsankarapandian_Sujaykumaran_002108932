@@ -129,7 +129,9 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
          for(Customer cust:system.getCustomerDirectory().getCustomerList()){
             if(order.getCusName().equals(cust.getCusUsername())){
                 for(WorkRequest order : cust.getOrderList()){
+                    if(order.getStatus().equals("Out for Delivery")) {
                     order.setStatus(status);
+                    }
                 }
             }
         }

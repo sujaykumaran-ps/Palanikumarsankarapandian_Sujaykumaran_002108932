@@ -11,6 +11,7 @@ import Business.Restaurant.Menu;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -147,17 +148,25 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
 
     private void btnReadyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadyActionPerformed
         // TODO add your handling code here:
-        order.setStatus("Ready to Deliver");
+        if(order.getStatus().equals("New Order")) {
+            JOptionPane.showMessageDialog(null, "Please Assign a Delivery Person at first !!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+        order.setStatus("Out for Delivery");
         for(Customer cust:system.getCustomerDirectory().getCustomerList()){
             if(order.getCusName().equals(cust.getCusUsername())){
                 for(WorkRequest order : cust.getOrderList()){
-                    order.setStatus("Ready to Deliver");
+                    if(order.getStatus().equals("Assigned for Delivery")) {
+                        order.setStatus("Out for Delivery");
+                    }
+                    
                 }
             }
         }
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        }
     }//GEN-LAST:event_btnReadyActionPerformed
 
     private void populateTable() {

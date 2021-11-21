@@ -177,9 +177,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         
         if(order.getStatus().equals("Delivered")){
             JOptionPane.showMessageDialog(null,"Order Already Delivered", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else{
-        
-        
+        }else if(order.getStatus().equals("New Order") || order.getStatus().equals("Assigned for Delivery")){
+            JOptionPane.showMessageDialog(null,"Order is not yet Ready", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order,business);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

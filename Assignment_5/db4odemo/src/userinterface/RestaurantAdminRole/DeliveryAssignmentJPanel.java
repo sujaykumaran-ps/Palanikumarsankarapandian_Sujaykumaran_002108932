@@ -156,16 +156,18 @@ public class DeliveryAssignmentJPanel extends javax.swing.JPanel {
             
             DeliveryMan deliveryMan  = (DeliveryMan)DeliveryManJTable.getValueAt(selectedRow, 0);   
             deliveryMan.getOrderList().add(order);
-            order.setStatus("Out for Delivery");
+            order.setStatus("Assigned for Delivery");
             
             for(Customer cust:system.getCustomerDirectory().getCustomerList()){
             if(order.getCusName().equals(cust.getCusUsername())){
                 for(WorkRequest order : cust.getOrderList()){
-                    order.setStatus("Out for Delivery");
+                    if(order.getStatus().equals("New Order")){
+                        order.setStatus("Assigned for Delivery");
+                    }
                 }
             }
         }
-         userProcessContainer.remove(this);
+        userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
             

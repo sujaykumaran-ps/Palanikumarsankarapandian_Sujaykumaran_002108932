@@ -186,7 +186,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         }
         else{
             WorkRequest order  = (WorkRequest)tblOrders.getValueAt(selectedRow, 0);  
-            if(order.getStatus().equals("Ready to Deliver") || order.getStatus().equals("Delivered")){
+            if(order.getStatus().equals("Out for Delivery") || order.getStatus().equals("Delivered")){
                 JOptionPane.showMessageDialog(null, "Order Request Completed Already !!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }else{
                 ViewOrderJPanel viewOrder=new ViewOrderJPanel(userProcessContainer, account, order, system);
@@ -205,11 +205,11 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         }
         else{
             WorkRequest order  = (WorkRequest)tblOrders.getValueAt(selectedRow, 0);
-            if(order.getStatus().equals("Out for Delivery")){
-                JOptionPane.showMessageDialog(null,"Already Out for Delivery !!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            if(order.getStatus().equals("Out for Delivery") || order.getStatus().equals("Delivered")){
+                JOptionPane.showMessageDialog(null,"Already Assigned for Delivery !!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }else{
                 DeliveryAssignmentJPanel assignDelivery = new DeliveryAssignmentJPanel(userProcessContainer, account, order, system);
-                userProcessContainer.add("Out for Delivery", assignDelivery);
+                userProcessContainer.add("Assigned for Delivery", assignDelivery);
                 CardLayout layout=(CardLayout)userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
             }

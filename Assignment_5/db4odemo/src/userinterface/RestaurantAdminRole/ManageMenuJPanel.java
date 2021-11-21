@@ -209,7 +209,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         String amount = txtDishAmount.getText();
 
         try {
-            if(name==null || name.isEmpty()){
+            if(name == null || name.isEmpty()){
                 throw new NullPointerException("Dish Name field cannot be Empty !!!");
             }
         } catch(NullPointerException e){

@@ -262,7 +262,12 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
         }
         else{
             Menu item = (Menu)tblMenu.getValueAt(selectedRow, 0); 
-            populateCartTable(item);         
+            String quantity = JOptionPane.showInputDialog("Enter Quantity :");
+            int q = Integer.parseInt(quantity);
+            for(int i = 1; i <= q; i++){
+               populateCartTable(item);  
+            }
+                    
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -308,7 +313,7 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
             }
         }
         
-        JOptionPane.showMessageDialog(null,"Your Order is placed Successfully !!!", "Thank You", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Your Order is placed Successfully !!!", "Thank You", JOptionPane.PLAIN_MESSAGE);
         i = 0;
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
@@ -360,8 +365,9 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
             row[0] = dish;
             row[1] = dish.getItemDescription();
             row[2] = dish.getItemPrice();
-            i = i + Integer.parseInt(dish.getItemPrice());
+            
             model.addRow(row);
         }  
+        i=i+Integer.parseInt(item.getItemPrice());
     }
 }
