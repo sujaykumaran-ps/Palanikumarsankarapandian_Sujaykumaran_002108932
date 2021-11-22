@@ -198,6 +198,26 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        if(order.getStatus().equals("New Order")) {
+            order.setStatus("Order Cancelled");
+            for(Customer cust:system.getCustomerDirectory().getCustomerList()){
+            if(order.getCusName().equals(cust.getCusUsername())){
+                for(WorkRequest order : cust.getOrderList()){
+                    if(order.getStatus().equals("New Order")) {
+                        order.setStatus("Order Cancelled");
+                    }
+                    
+                }
+            }
+        }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Order is Accepted already. Cannot cancel Order !!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
         
     }//GEN-LAST:event_btnCancelActionPerformed
 
