@@ -68,6 +68,8 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
         btnPlaceOrder = new javax.swing.JButton();
         lblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
+        lblInstructions = new javax.swing.JLabel();
+        txtInstructions = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(252, 156, 52));
 
@@ -175,6 +177,15 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
         lblAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblAddress.setText("Delivery Address :");
 
+        lblInstructions.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblInstructions.setText("Special Instructions :");
+
+        txtInstructions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInstructionsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,23 +209,32 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(205, 205, 205)
-                                .addComponent(jLabel1))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(165, 165, 165)
+                                        .addComponent(btnRemove))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(52, 52, 52)
+                                        .addComponent(lblAddress)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblInstructions)
+                                    .addComponent(txtInstructions, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(btnRemove))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(lblAddress)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(205, 205, 205)
+                                        .addComponent(jLabel1))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(360, 360, 360)
                         .addComponent(btnPlaceOrder)))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,13 +254,19 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRemove)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddress)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemove)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAddress)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblInstructions)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnPlaceOrder)
                 .addContainerGap(37, Short.MAX_VALUE))
@@ -296,6 +322,7 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
         String address = txtAddress.getText();
+        String ins = txtInstructions.getText();
         
         try {
              if(address==null || address.isEmpty()){
@@ -306,10 +333,10 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
             return; 
         }
         
-        res.newOrder(res.getResName(), account.getUsername(), null, items, String.valueOf(i) , address);
+        res.newOrder(res.getResName(), account.getUsername(), null, items, String.valueOf(i) , address, ins);
         for(Customer cust:system.getCustomerDirectory().getCustomerList()){
             if(account.getUsername().equals(cust.getCusUsername())){
-                cust.newOrder(res.getResName(), account.getUsername(), null, items, String.valueOf(i) , address);
+                cust.newOrder(res.getResName(), account.getUsername(), null, items, String.valueOf(i) , address, ins);
             }
         }
         
@@ -324,6 +351,10 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
         
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
+
+    private void txtInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInstructionsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInstructionsActionPerformed
 
     private void populateMenuTable() {
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
@@ -346,12 +377,14 @@ public class RestaurantMenuJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblInstructions;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblMenu;
     private javax.swing.JLabel titleOrder;
     private javax.swing.JLabel titleResName;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtInstructions;
     // End of variables declaration//GEN-END:variables
 
     private void populateCartTable(Menu item) {

@@ -103,7 +103,7 @@ public class Restaurant {
         dishList.remove(dish);
     }
     
-    public void newOrder(String resName, String cusName, String delMan, ArrayList<Menu> order, String cost, String deliveryAddress) {
+    public void newOrder(String resName, String cusName, String delMan, ArrayList<Menu> order, String cost, String deliveryAddress, String instructions) {
         WorkRequest newWork = new WorkRequest();
         newWork.setOrderId(String.valueOf(id));
         newWork.setCusName(cusName);
@@ -112,6 +112,7 @@ public class Restaurant {
         newWork.setOrder(order);
         newWork.setCost(cost);
         newWork.setDelAddress(deliveryAddress);
+        newWork.setMessage(instructions);
         newWork.setStatus("New Order");
         orderList.add(newWork);
         id++;

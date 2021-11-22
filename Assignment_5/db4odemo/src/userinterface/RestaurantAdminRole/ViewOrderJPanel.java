@@ -35,6 +35,7 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
         this.order = order;
         this.system = system;
         populateTable();
+        txtIns.setEnabled(false);
     }
 
     /**
@@ -51,6 +52,9 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrderDetails = new javax.swing.JTable();
         btnReady = new javax.swing.JButton();
+        lblIns = new javax.swing.JLabel();
+        txtIns = new javax.swing.JTextField();
+        btnCancel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(252, 156, 52));
 
@@ -100,6 +104,16 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblIns.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblIns.setText("Special Instructions");
+
+        btnCancel.setText("Cancel Order");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,12 +130,19 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
                                 .addComponent(btnBack))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(189, 189, 189)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblIns)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(txtIns))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 179, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(370, 370, 370)
-                .addComponent(btnReady)
+                .addGap(366, 366, 366)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnReady, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,8 +155,14 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIns)
+                    .addComponent(txtIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
                 .addComponent(btnReady)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancel)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -169,6 +196,11 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnReadyActionPerformed
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnCancelActionPerformed
+
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblOrderDetails.getModel();
         model.setRowCount(0);
@@ -179,15 +211,19 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
                      row[1] = dish.getItemDescription();
                      row[2] = dish.getItemPrice();
                      model.addRow(row);
-                }  
+                }
+        txtIns.setText(order.getMessage());
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnReady;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblIns;
     private javax.swing.JTable tblOrderDetails;
     private javax.swing.JLabel titleOrderDetails;
+    private javax.swing.JTextField txtIns;
     // End of variables declaration//GEN-END:variables
 }

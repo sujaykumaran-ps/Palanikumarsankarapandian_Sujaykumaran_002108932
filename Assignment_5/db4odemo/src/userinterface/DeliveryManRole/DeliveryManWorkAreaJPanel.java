@@ -47,7 +47,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             if(deliveryMan.getDelUsername().equals(userAccount.getUsername())){
                     
                 for(WorkRequest order : deliveryMan.getOrderList()){
-                Object[] row = new Object[6];
+                Object[] row = new Object[7];
                 
                 row[0] = order;
                 row[1] = order.getResName();
@@ -55,6 +55,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 row[3] = order.getDelAddress();
                 row[4] = order.getCost();
                 row[5] = order.getStatus();
+                row[6] = order.getMessage();
                 model.addRow(row);     
                 }
             } 
@@ -80,21 +81,21 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order Id", "Restaurant Name", "Customer Name", "Delivery Address", "Amount", "Status"
+                "Order Id", "Restaurant Name", "Customer Name", "Delivery Address", "Amount", "Status", "Message"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -135,17 +136,16 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(titleAssignedOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(284, 284, 284)
-                                .addComponent(btnRefresh)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnProcess)))
+                        .addGap(284, 284, 284)
+                        .addComponent(btnRefresh)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnProcess)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +158,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRefresh)
                     .addComponent(btnProcess))
-                .addContainerGap())
+                .addContainerGap(25, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

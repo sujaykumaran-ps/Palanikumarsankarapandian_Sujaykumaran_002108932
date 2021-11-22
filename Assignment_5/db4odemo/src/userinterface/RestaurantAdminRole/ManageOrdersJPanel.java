@@ -50,7 +50,6 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         btnRefresh = new javax.swing.JButton();
         btnAssign = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(252, 156, 52));
 
@@ -114,8 +113,6 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCancel.setText("Cancel Order");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,8 +138,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 .addGap(444, 444, 444)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAssign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -160,9 +156,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 .addComponent(btnAssign)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnView)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCancel)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -220,7 +214,6 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;

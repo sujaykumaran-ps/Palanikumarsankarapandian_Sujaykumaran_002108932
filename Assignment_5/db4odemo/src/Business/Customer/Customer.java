@@ -77,7 +77,7 @@ public class Customer {
         this.id = id;
     }
     
-    public void newOrder(String resName, String cusName, String delMan, ArrayList<Menu> order, String cost, String deliveryAddress) {
+    public void newOrder(String resName, String cusName, String delMan, ArrayList<Menu> order, String cost, String deliveryAddress, String instructions) {
         WorkRequest newWork = new WorkRequest();
         newWork.setOrderId(String.valueOf(id));
         newWork.setCusName(cusName);
@@ -86,6 +86,7 @@ public class Customer {
         newWork.setOrder(order);
         newWork.setCost(cost);
         newWork.setDelAddress(deliveryAddress);
+        newWork.setMessage(instructions);
         newWork.setStatus("New Order");
         orderList.add(newWork);
         id++;
